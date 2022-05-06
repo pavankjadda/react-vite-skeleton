@@ -1,0 +1,31 @@
+.homeButton {
+  font-size: 20px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.homeButton:hover {
+  font-size: 20px !important;
+  color: #fff !important;
+  text-decoration: underline !important;
+}
+
+.headerSpacer {
+  flex-grow: 1 !important;
+}
+
+//Hide Menu icon in extra small, small and medium screens
+@media(min-width: 992px) {
+  .menuButton {
+    display: none !important;
+  }
+}
+
+
+@media(min-width: 1200px) {
+  //Add margin to Header only in XL or later view
+  .appBar {
+    width: calc(100% - 300px) !important;
+    margin-left: 300px !important;
+  }
+}
