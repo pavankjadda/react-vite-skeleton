@@ -1,0 +1,6 @@
+{
+  "/api/v1/*": "/$1",
+  "/user/authenticate/": "/authenticate",
+  "/user/home": "/authenticate",
+  "/book/find/all/slim": "/books"
+}

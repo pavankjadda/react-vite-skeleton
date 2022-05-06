@@ -1,0 +1,120 @@
+{
+  "authenticate":
+    {
+      "id": 1,
+      "username": "jaddap2",
+      "password": null,
+      "firstName": "Pavan Kumar",
+      "lastName": "Jadda",
+      "displayName": null,
+      "email": "pavankumar.jadda@nih.gov",
+      "active": true,
+      "credentialsNonExpired": true,
+      "accountNonLocked": true,
+      "accountNonExpired": true,
+      "token": "6ca43334-68e9-4311-b797-f992eb9649c7",
+      "tokenExpirationDate": "2022-01-18T18:18:52.925Z",
+      "userAuthType": {
+        "createdBy": null,
+        "createdDate": null,
+        "lastModifiedBy": null,
+        "lastModifiedDate": null,
+        "id": 1,
+        "value": "LDAP"
+      },
+      "authorities": [
+        {
+          "name": "ROLE_PDTS_STAFF"
+        },
+        {
+          "name": "ROLE_CORE_USER"
+        },
+        {
+          "name": "ROLE_PHARMACY_USER"
+        },
+        {
+          "name": "ROLE_CRMS_PSO_MANAGER"
+        },
+        {
+          "name": "ROLE_ADMIN_PSO"
+        },
+        {
+          "name": "ROLE_CRMS_CORE_USER"
+        },
+        {
+          "name": "ROLE_REGISTERING_USER"
+        },
+        {
+          "name": "ROLE_API_USER"
+        },
+        {
+          "name": "ROLE_DATA_ADMIN"
+        },
+        {
+          "name": "ROLE_CRMS_DATA_USER"
+        },
+        {
+          "name": "ROLE_CRMS_READONLY_USER"
+        },
+        {
+          "name": "ROLE_CRMS_SYS_ADMIN"
+        },
+        {
+          "name": "ROLE_READONLY_USER"
+        },
+        {
+          "name": "ROLE_DATA_USER"
+        },
+        {
+          "name": "ROLE_PDTS_RESEARCH_NURSE"
+        },
+        {
+          "name": "ROLE_PDTS_SPONSOR_REPRESENTATIVE"
+        },
+        {
+          "name": "ROLE_SYS_ADMIN"
+        },
+        {
+          "name": "ROLE_PDTS_CORE_USER"
+        },
+        {
+          "name": "ROLE_PDTS_RESEARCH_NURSE_TEAM_LEAD"
+        }
+      ],
+      "lastModifiedBy": "System",
+      "lastModifiedDate": "2020-06-19T20:44:50.193548Z"
+    }
+  ,
+  "books": [
+    {
+      "id": 1,
+      "title": "Java Fundamentals",
+      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+    },
+    {
+      "id": 2,
+      "title": "React Fundamentals",
+      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+    },
+    {
+      "id": 3,
+      "title": "Angular Fundamentals",
+      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+    },
+    {
+      "id": 4,
+      "title": "Node Fundamentals",
+      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
