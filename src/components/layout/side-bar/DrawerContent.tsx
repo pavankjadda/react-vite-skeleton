@@ -6,7 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ListItemText from "@mui/material/ListItemText";
 import SearchIcon from "@mui/icons-material/Search";
 import Divider from "@mui/material/Divider";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import HelpIcon from "@mui/icons-material/Help";
 import styles from "./SideBar.module.scss";
 
@@ -73,7 +73,7 @@ function DrawerContent(): JSX.Element {
 
                 {/* Version */}
                 <ListItem key="Version">
-                    <label>Version: {process.env.REACT_APP_VERSION}</label>
+                    <label>Version: {import.meta.env.REACT_APP_VERSION}</label>
                 </ListItem>
             </List>
         </div>

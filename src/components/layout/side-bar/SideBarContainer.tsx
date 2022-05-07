@@ -3,7 +3,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Routes from "../../../routes/Routes";
 import Header from "../header/Header";
 import SideBar from "./SideBar";
-import { Toolbar } from "@mui/material";
+import {Toolbar} from "@mui/material";
 import ReactIf from "../../shared/ReactIf";
 import theme from "../../../theme";
 import useAuthService from "../../../hooks/useAuthService";
@@ -15,7 +15,7 @@ export default function SideBarContainer(): JSX.Element {
         <CssBaseline />
         <Header />
 
-        {/* Show the side bar when user logged in */}
+          {/* Show the sidebar when user logged in */}
         <ReactIf condition={isUserLoggedIn()}>
           <SideBar />
         </ReactIf>
