@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./Login.scss";
 import {useHistory, useLocation} from "react-router-dom";
-import {Divider, TextField} from "@mui/material";
-import {useFormik} from "formik";
+import {Grid, TextField, Typography} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
 import {useCookies} from "@react-smart/react-cookie-service";
@@ -15,6 +14,18 @@ import {HTTP_200, HTTP_403, HTTP_500} from "../../../constants/HttpConstants";
 import {ROLE_CRMS_CORE_USER} from "../../../constants/AuthorityConstants";
 import {createUser} from "../../../state/reducers/UserReducer";
 import {LocationType} from "../../../types/LocationType";
+import {Controller, SubmitHandler, useForm} from 'react-hook-form';
+import {yupResolver} from '@hookform/resolvers/yup';
+
+interface LoginFormInput {
+    username: string;
+    password: string;
+}
+
+const schema = Yup.object({
+    username: Yup.string().max(40, 'Must be 40 characters or less').required('User name is Required'),
+    password: Yup.string().max(40, 'Must be 40 characters or less').required('Password is Required'),
+});
 
 export default function LoginForm(): JSX.Element {
     const [loadingState, setLoadingState] = useState<UpdateState>({loading: false, status: undefined, message: ""});
@@ -22,31 +33,15 @@ export default function LoginForm(): JSX.Element {
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation<LocationType>();
-
-    /**
-     * Initialize Formik instance and setup validation schema
-     *
-     * @author Pavan Kumar Jadda
-     * @since 1.0.0
-     */
-    const formik = useFormik({
-        initialValues: {
-            username: "",
-            password: ""
-        },
-        validationSchema: Yup.object({
-            username: Yup.string()
-                .max(40, "Must be 40 characters or less")
-                .required("User name is Required"),
-            password: Yup.string()
-                .max(40, "Must be 40 characters or less")
-                .required("Password is Required")
-        }),
-        onSubmit: (values) => {
-            //Login user and save token
-            loginUser(values?.username, values?.password);
-        }
+    const {
+        control,
+        formState: {errors},
+        handleSubmit,
+    } = useForm<LoginFormInput>({
+        resolver: yupResolver(schema),
+        mode: 'all',
     });
+
 
     /**
      * Save Redirect URL and clear all cookies on load. Set `redirectUrl` again
@@ -64,21 +59,20 @@ export default function LoginForm(): JSX.Element {
     /**
      * Login user and save token to cookies
      *
-     * @param username of the user
-     * @param password of the user
+     * @param data LoginFormInput data
      *
      * @author Pavan Kumar Jadda
-     * @since 1.0.0
+     * @since 0.1.0
      */
-    function loginUser(username: string, password: string) {
+    const loginUser: SubmitHandler<LoginFormInput> = (data) => {
         setLoadingState(loadingState => ({
             ...loadingState,
             loading: true
         }));
 
         LoginService.loginUser(
-            username,
-            password
+            data.username,
+            data.password
         ).then(response => {
             setLoadingState(loadingState => ({
                 ...loadingState,
@@ -87,7 +81,7 @@ export default function LoginForm(): JSX.Element {
 
             //Login Success
             if (response?.status === HTTP_200) {
-                //Check if user has proper roles to login to the system
+                //Check if user has proper roles to log in to the system
                 if (response.data.authorities.find(authority => authority.name === ROLE_CRMS_CORE_USER) === undefined) {
                     setLoadingState({
                         loading: false,
@@ -140,52 +134,61 @@ export default function LoginForm(): JSX.Element {
             });
     }
 
-    return (
-        <form onSubmit={formik.handleSubmit}>
-            <div className="row">
-                <h2 className="custom-flex-justify-center" style={{padding: "10px"}}>
-                    Login
-                </h2>
-            </div>
-            <Divider/>
-            <div className=" custom-flex-justify-center" style={{padding: "20px"}}>
-                <TextField
-                    id="username"
-                    label="Username"
-                    variant="filled"
-                    placeholder="Use your NIH Username"
-                    {...formik.getFieldProps("username")}
-                    required
-                />
-            </div>
-            {formik.touched.username && formik.errors.username && (
-                <div className="row custom-flex-justify-center">
-                    <label className="col-xs-12 col-sm-12 com-md-12 col-lg-10 col-xl-8 text-danger"
-                           style={{paddingLeft: "20px"}}>
-                        {formik.errors.username}
-                    </label>
-                </div>
-            )}
 
-            <div className="row custom-flex-justify-center" style={{padding: "20px"}}>
-                <TextField
-                    id="password"
-                    label="Password"
-                    type="password"
-                    variant="filled"
-                    placeholder="Use your NIH Password"
-                    {...formik.getFieldProps("password")}
-                    required
+    return (
+        <form onSubmit={handleSubmit(loginUser)} noValidate>
+            <Typography
+                component="div"
+                variant="h4"
+                className="custom-head-primary custom-flex-justify-center"
+                style={{margin: '20px', fontWeight: 'bold'}}>
+                Login
+            </Typography>
+
+            {/* Username */}
+            <Grid container className="custom-flex-justify-center" style={{padding: '20px'}}>
+                <Controller
+                    name="username"
+                    control={control}
+                    defaultValue=""
+                    render={({field}) => (
+                        <TextField
+                            fullWidth
+                            id="username"
+                            label="Username"
+                            variant="filled"
+                            placeholder="Use your NIH Username"
+                            error={errors.username !== undefined}
+                            helperText={errors.username && errors.username.message}
+                            {...field}
+                            required
+                        />
+                    )}
                 />
-            </div>
-            {formik.touched.password && formik.errors.password && (
-                <div className="row custom-flex-justify-center">
-                    <label className="col-xs-12 col-sm-12 com-md-12 col-lg-10 col-xl-8 text-danger"
-                           style={{paddingLeft: "20px"}}>
-                        {formik.errors.password}
-                    </label>
-                </div>
-            )}
+            </Grid>
+
+            {/* Password */}
+            <Grid container className="custom-flex-justify-center" style={{padding: '20px'}}>
+                <Controller
+                    name="password"
+                    control={control}
+                    defaultValue=""
+                    render={({field}) => (
+                        <TextField
+                            fullWidth
+                            type="password"
+                            id="password"
+                            label="Password"
+                            variant="filled"
+                            placeholder="Use your NIH Password"
+                            error={errors.password !== undefined}
+                            helperText={errors.password && errors.password.message}
+                            {...field}
+                            required
+                        />
+                    )}
+                />
+            </Grid>
 
             {/* Submit button */}
             <div className="custom-flex-justify-center" style={{padding: "20px"}}>
