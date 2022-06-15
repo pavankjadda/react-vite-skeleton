@@ -7,7 +7,7 @@ A Create React App (CRA) skeleton project that can be used as base lint/skeleton
 3. React Router
 4. Material UI
 5. Axios
-6. Formik
+6. React Hook Form
 7. Vite
 
 ### Run the Project on Local Machine
