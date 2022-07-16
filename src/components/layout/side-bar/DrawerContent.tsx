@@ -6,7 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import ListItemText from "@mui/material/ListItemText";
 import SearchIcon from "@mui/icons-material/Search";
 import Divider from "@mui/material/Divider";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import HelpIcon from "@mui/icons-material/Help";
 import styles from "./SideBar.module.scss";
 
@@ -18,7 +18,7 @@ import styles from "./SideBar.module.scss";
  * @since 1.0.0
  */
 function DrawerContent(): JSX.Element {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     /**
      * Programmatically navigate to Home
@@ -27,7 +27,7 @@ function DrawerContent(): JSX.Element {
      * @since 1.0.0
      */
     function navigateToHome() {
-        history.push("/home");
+        navigate("/home");
     }
 
     /**
@@ -37,7 +37,7 @@ function DrawerContent(): JSX.Element {
      * @since 1.0.0
      */
     function navigateToBookSearch() {
-        history.push("/book");
+        navigate("/book");
     }
 
     return (<div>

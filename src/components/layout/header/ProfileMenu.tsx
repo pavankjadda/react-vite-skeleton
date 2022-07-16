@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useCookies from "@js-smart/react-cookie-service";
 import { User } from "../../user/User";
 import Logout from "@mui/icons-material/Logout";
@@ -8,7 +8,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 export default function ProfileMenu() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { check, getCookie } = useCookies();
   const [user] = useState<User | undefined>(check("currentUser") ? JSON.parse(getCookie("currentUser")) as User : undefined);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -43,11 +43,11 @@ export default function ProfileMenu() {
           "aria-labelledby": "profile-button"
         }}
       >
-        <MenuItem onClick={() => history.push("/profile")}>
+        <MenuItem onClick={() => navigate("/profile")}>
           <PersonIcon style={{ marginRight: "10px" }} />
           Profile
         </MenuItem>
-        <MenuItem onClick={() => history.push("/logout")}>
+        <MenuItem onClick={() => navigate("/logout")}>
           <Logout style={{ marginRight: "10px" }} />
           Logout
         </MenuItem>

@@ -1,10 +1,10 @@
 import "../login/Login.scss";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import React, { useEffect } from "react";
 import useCookies from "@js-smart/react-cookie-service";
 
 export default function Logout(): JSX.Element {
-    const history = useHistory();
+    const navigate = useNavigate();
     const { deleteCookie, deleteAllCookies } = useCookies();
 
     /**
@@ -18,7 +18,7 @@ export default function Logout(): JSX.Element {
         deleteAllCookies();
 
         // Programmatically navigate to login page
-        history.push("/login");
+        navigate("/login");
     });
 
     return (
