@@ -1,7 +1,7 @@
 import { Alert, Card, CardContent, Checkbox, Divider, List, ListItem, ListItemButton, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { User } from "../user/User";
-import { useCookies } from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 import { ERROR, SUCCESS } from "../../constants/StateConstants";
 import { UserService } from "../../services/UserService";
 import { UpdateState } from "../shared/UpdateState";

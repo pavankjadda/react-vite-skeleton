@@ -7,7 +7,7 @@ import axios from "axios";
 import SideBarContainer from "./components/layout/side-bar/SideBarContainer";
 import { HTTP_401 } from "./constants/HttpConstants";
 import { useHistory, useLocation } from "react-router-dom";
-import { useCookies } from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 
 export default function App(): JSX.Element {
   const history = useHistory();

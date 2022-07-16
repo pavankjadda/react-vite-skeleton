@@ -4,7 +4,7 @@ import {useHistory, useLocation} from "react-router-dom";
 import {Grid, TextField, Typography} from "@mui/material";
 import * as Yup from "yup";
 import {useDispatch} from "react-redux";
-import {useCookies} from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 import {resetReduxStore} from "../../../state/reducers/RootReducer";
 import {LoadingButton} from "@mui/lab";
 import {UpdateState} from "../../shared/UpdateState";

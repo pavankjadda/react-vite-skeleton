@@ -9,7 +9,7 @@ import {useDispatch} from "react-redux";
 import {updateUser} from "../../state/reducers/UserReducer";
 import ReactIf from "../shared/ReactIf";
 import {Alert} from "@mui/material";
-import {useCookies} from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 
 export default function Home(): JSX.Element {
     const [loadingState, setLoadingState] = useState<UpdateState>({loading: false, status: undefined, message: ""});

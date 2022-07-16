@@ -1,4 +1,4 @@
-import { useCookies } from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 import {
     ROLE_CRMS_DATA_USER,
     ROLE_CRMS_PSO_MANAGER,

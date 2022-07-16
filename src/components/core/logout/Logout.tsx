@@ -1,7 +1,7 @@
 import "../login/Login.scss";
 import { useHistory } from "react-router-dom";
 import React, { useEffect } from "react";
-import { useCookies } from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 
 export default function Logout(): JSX.Element {
     const history = useHistory();

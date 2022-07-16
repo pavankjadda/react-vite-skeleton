@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Menu, MenuItem } from "@mui/material";
 import { useHistory } from "react-router-dom";
-import { useCookies } from "@react-smart/react-cookie-service";
+import useCookies from "@js-smart/react-cookie-service";
 import { User } from "../../user/User";
 import Logout from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
