@@ -4,10 +4,10 @@ import styles from "../../layout/side-bar/SideBar.module.scss";
 import HelpIcon from "@mui/icons-material/Help";
 import BookIcon from "@mui/icons-material/Book";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export default function HelpTile(): JSX.Element {
-    const history = useHistory();
+    const navigate = useNavigate();
     return (
       <div style={{ marginTop: "50px" }}>
           <Card className="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8" elevation={24}>
@@ -27,7 +27,7 @@ export default function HelpTile(): JSX.Element {
                   </ListItemButton>
                 </ListItem>
                         <ListItem disablePadding>
-                            <ListItemButton onClick={() => history.push("/faq")}>
+                            <ListItemButton onClick={() => navigate("/faq")}>
                                 <ListItemIcon className={styles.listItemIcon}>
                                     {<QuestionAnswerIcon color={"primary"}/>}
                                 </ListItemIcon>

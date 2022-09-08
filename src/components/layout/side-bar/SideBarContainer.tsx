@@ -1,6 +1,6 @@
 import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Routes from "../../../routes/Routes";
+import AppRoutes from "../../../routes/AppRoutes";
 import Header from "../header/Header";
 import SideBar from "./SideBar";
 import {Toolbar} from "@mui/material";
@@ -23,7 +23,7 @@ export default function SideBarContainer(): JSX.Element {
         {/* Main Section */}
         <main style={{ flexGrow: 1, padding: `${theme.spacing(3)}` }}>
           <Toolbar />
-          <Routes />
+          <AppRoutes />
         </main>
       </div>
     );

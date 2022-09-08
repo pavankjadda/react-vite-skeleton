@@ -2,11 +2,11 @@ import React from "react";
 import {Card, CardContent, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
 import styles from "../../layout/side-bar/SideBar.module.scss";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import {useHistory} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 
 export default function BookTile() {
-    const history = useHistory();
+    const navigate = useNavigate();
     return (
       <div style={{ marginTop: "20px" }}>
           <Card className="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8" elevation={24}>
@@ -17,7 +17,7 @@ export default function BookTile() {
             <CardContent className="row custom-flex-justify-center">
               <List>
                 <ListItem disablePadding>
-                  <ListItemButton onClick={() => history.push("/book")}>
+                  <ListItemButton onClick={() => navigate("/book")}>
                     <ListItemIcon className={styles.listItemIcon}>
                       {<FindInPageIcon color={"primary"}/>}
                     </ListItemIcon>
@@ -25,7 +25,7 @@ export default function BookTile() {
                   </ListItemButton>
                 </ListItem>
                         <ListItem disablePadding>
-                            <ListItemButton onClick={() => history.push("/book/all")}>
+                            <ListItemButton onClick={() => navigate("/book/all")}>
                                 <ListItemIcon className={styles.listItemIcon}>
                                     {<FormatListBulletedIcon color={"primary"}/>}
                                 </ListItemIcon>

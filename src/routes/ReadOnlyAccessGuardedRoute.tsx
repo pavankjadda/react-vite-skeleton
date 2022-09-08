@@ -1,14 +1,6 @@
-import * as React from "react";
-import { Redirect, Route } from "react-router-dom";
-import ReactIf from "../components/shared/ReactIf";
-import useAuthService from "../hooks/useAuthService";
-
-export interface Props {
-  component: any;
-  path: string;
-  isAuthorized: boolean;
-  exact: boolean;
-}
+import * as React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import useAuthService from '../hooks/useAuthService';
 
 /**
  * Read-Only access auth guard
@@ -16,40 +8,12 @@ export interface Props {
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-export function ReadOnlyAccessGuardedRoute(props: Props): JSX.Element {
-  const { component: Component, isAuthorized, ...rest } = props;
-  const { isUserLoggedIn } = useAuthService();
-  return (
-    <Route
-      {...rest}
-      render={(routeProps) =>
-        <div>
-          {/* If not logged in, redirect to Login page */}
-          <ReactIf condition={!isUserLoggedIn()}>
-            <Redirect
-              to={{
-                pathname: "/login",
-                state: { from: routeProps?.location }
-              }}
-            />
-          </ReactIf>
+export function ReadOnlyAccessGuardedRoute({ children }: { children: JSX.Element }): JSX.Element {
+	const { isUserLoggedIn } = useAuthService();
+	let location = useLocation();
+	const { isReadOnlyUser } = useAuthService();
 
-          {/* If logged in and has Read Only User role, navigate to component */}
-          <ReactIf condition={isUserLoggedIn() && isAuthorized}>
-            <Component {...routeProps} />
-          </ReactIf>
-
-          {/* If logged in but does not Read Only User role, navigate to Unauthorized page */}
-          <ReactIf condition={isUserLoggedIn() && !isAuthorized}>
-            <Redirect
-              to={{
-                pathname: "/unauthorized",
-                state: { from: routeProps?.location }
-              }}
-            />
-          </ReactIf>
-        </div>
-      }
-    />
-  );
+	if (isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
+	else if (isUserLoggedIn() && !isReadOnlyUser()) return <Navigate to="unauthorized" state={{ from: location }} replace />;
+	return children;
 }

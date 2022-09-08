@@ -6,11 +6,11 @@ import theme from "./theme";
 import axios from "axios";
 import SideBarContainer from "./components/layout/side-bar/SideBarContainer";
 import { HTTP_401 } from "./constants/HttpConstants";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import useCookies from "@js-smart/react-cookie-service";
 
 export default function App(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const { getCookie, setCookie, deleteAllCookies } = useCookies();
 
@@ -51,7 +51,7 @@ export default function App(): JSX.Element {
           setCookie("redirectUrl", location?.pathname ?? "/");
 
           // Programmatically navigate to login page
-          history.push("/login");
+            navigate("/login");
         }
         return Promise.reject(error);
       }
