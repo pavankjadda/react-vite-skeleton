@@ -1,40 +1,40 @@
 {
   "name": "react-vite-skeleton",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite --port=3000",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@hookform/resolvers": "^2.9.6",
     "@js-smart/react-cookie-service": "^2.1.7",
-    "@mui/icons-material": "^5.8.4",
-    "@mui/lab": "^5.0.0-alpha.90",
-    "@mui/material": "^5.9.0",
-    "@mui/x-data-grid": "^5.13.1",
-    "@reduxjs/toolkit": "^1.8.3",
+    "@mui/icons-material": "^5.10.3",
+    "@mui/lab": "^5.0.0-alpha.98",
+    "@mui/material": "^5.10.4",
+    "@mui/x-data-grid": "^5.17.1",
+    "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.33.1",
+    "react-hook-form": "^7.34.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
-    "sass": "^1.53.0",
+    "sass": "^1.54.9",
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@types/react": "^18.0.15",
+    "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react": "^2.0.0",
+    "@vitejs/plugin-react": "^2.1.0",
     "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.0"
+    "typescript": "^4.8.2",
+    "vite": "^3.1.0"
   }
 }
