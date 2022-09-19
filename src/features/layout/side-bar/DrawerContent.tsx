@@ -3,6 +3,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import HomeIcon from '@mui/icons-material/Home';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ListItemText from '@mui/material/ListItemText';
 import SearchIcon from '@mui/icons-material/Search';
 import Divider from '@mui/material/Divider';
@@ -51,8 +52,13 @@ function DrawerContent(): JSX.Element {
 				<Divider className={styles.divider} />
 				{/* Help Section */}
 				<List>
+					{/* Account */}
+					<ListItem button key="Account" onClick={() => navigate('/profile')}>
+						<ListItemIcon className={styles.listItemIcon}>{<AccountCircleIcon />}</ListItemIcon>
+						<ListItemText primary="Account" />
+					</ListItem>
 					{/* Help */}
-					<ListItem button key="Home" onClick={() => navigate('/')}>
+					<ListItem button key="Home" onClick={() => navigate('/help')}>
 						<ListItemIcon className={styles.listItemIcon}>{<HelpIcon />}</ListItemIcon>
 						<ListItemText primary="Help" />
 					</ListItem>
