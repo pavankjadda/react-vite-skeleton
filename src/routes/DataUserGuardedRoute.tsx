@@ -13,7 +13,7 @@ export function DataUserGuardedRoute({ children }: { children: JSX.Element }): J
 	const { isUserLoggedIn } = useAuthService();
 	const { isDataUser } = useAuthService();
 
-	if (isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
+	if (!isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
 	else if (isUserLoggedIn() && !isDataUser()) return <Navigate to="unauthorized" state={{ from: location }} replace />;
 	return children;
 }

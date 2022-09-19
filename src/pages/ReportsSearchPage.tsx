@@ -1,10 +1,8 @@
 import React from 'react';
-import ReportsSearch from '../components/reports/ReportsSearch';
+import ReportsSearch from '../features/reports/ReportsSearch';
 
 function ReportsSearchPage(): JSX.Element {
-    return (
-        <ReportsSearch/>
-    );
+	return <ReportsSearch />;
 }
 
 export default ReportsSearchPage;

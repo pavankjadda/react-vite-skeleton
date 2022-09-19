@@ -1,110 +1,160 @@
 {
-  "authenticate":
-    {
+  "authenticate": {
+    "id": 1,
+    "username": "jaddap2",
+    "password": null,
+    "firstName": "Pavan Kumar",
+    "lastName": "Jadda",
+    "displayName": null,
+    "email": "pavankumar.jadda@nih.gov",
+    "active": true,
+    "credentialsNonExpired": true,
+    "accountNonLocked": true,
+    "accountNonExpired": true,
+    "token": "6ca43334-68e9-4311-b797-f992eb9649c7",
+    "tokenExpirationDate": "2022-01-18T18:18:52.925Z",
+    "userAuthType": {
+      "createdBy": null,
+      "createdDate": null,
+      "lastModifiedBy": null,
+      "lastModifiedDate": null,
       "id": 1,
-      "username": "jaddap2",
-      "password": null,
-      "firstName": "Pavan Kumar",
-      "lastName": "Jadda",
-      "displayName": null,
-      "email": "pavankumar.jadda@nih.gov",
-      "active": true,
-      "credentialsNonExpired": true,
-      "accountNonLocked": true,
-      "accountNonExpired": true,
-      "token": "6ca43334-68e9-4311-b797-f992eb9649c7",
-      "tokenExpirationDate": "2022-01-18T18:18:52.925Z",
-      "userAuthType": {
-        "createdBy": null,
-        "createdDate": null,
-        "lastModifiedBy": null,
-        "lastModifiedDate": null,
-        "id": 1,
-        "value": "LDAP"
+      "value": "LDAP"
+    },
+    "authorities": [
+      {
+        "name": "ROLE_PDTS_STAFF"
       },
-      "authorities": [
-        {
-          "name": "ROLE_PDTS_STAFF"
-        },
-        {
-          "name": "ROLE_CORE_USER"
-        },
-        {
-          "name": "ROLE_PHARMACY_USER"
-        },
-        {
-          "name": "ROLE_CRMS_PSO_MANAGER"
-        },
-        {
-          "name": "ROLE_ADMIN_PSO"
-        },
-        {
-          "name": "ROLE_CRMS_CORE_USER"
-        },
-        {
-          "name": "ROLE_REGISTERING_USER"
-        },
-        {
-          "name": "ROLE_API_USER"
-        },
-        {
-          "name": "ROLE_DATA_ADMIN"
-        },
-        {
-          "name": "ROLE_CRMS_DATA_USER"
-        },
-        {
-          "name": "ROLE_CRMS_READONLY_USER"
-        },
-        {
-          "name": "ROLE_CRMS_SYS_ADMIN"
-        },
-        {
-          "name": "ROLE_READONLY_USER"
-        },
-        {
-          "name": "ROLE_DATA_USER"
-        },
-        {
-          "name": "ROLE_PDTS_RESEARCH_NURSE"
-        },
-        {
-          "name": "ROLE_PDTS_SPONSOR_REPRESENTATIVE"
-        },
-        {
-          "name": "ROLE_SYS_ADMIN"
-        },
-        {
-          "name": "ROLE_PDTS_CORE_USER"
-        },
-        {
-          "name": "ROLE_PDTS_RESEARCH_NURSE_TEAM_LEAD"
-        }
-      ],
-      "lastModifiedBy": "System",
-      "lastModifiedDate": "2020-06-19T20:44:50.193548Z"
-    }
-  ,
+      {
+        "name": "ROLE_CORE_USER"
+      },
+      {
+        "name": "ROLE_PHARMACY_USER"
+      },
+      {
+        "name": "ROLE_CRMS_PSO_MANAGER"
+      },
+      {
+        "name": "ROLE_ADMIN_PSO"
+      },
+      {
+        "name": "ROLE_CRMS_CORE_USER"
+      },
+      {
+        "name": "ROLE_REGISTERING_USER"
+      },
+      {
+        "name": "ROLE_API_USER"
+      },
+      {
+        "name": "ROLE_DATA_ADMIN"
+      },
+      {
+        "name": "ROLE_CRMS_DATA_USER"
+      },
+      {
+        "name": "ROLE_CRMS_READONLY_USER"
+      },
+      {
+        "name": "ROLE_CRMS_SYS_ADMIN"
+      },
+      {
+        "name": "ROLE_READONLY_USER"
+      },
+      {
+        "name": "ROLE_DATA_USER"
+      },
+      {
+        "name": "ROLE_PDTS_RESEARCH_NURSE"
+      },
+      {
+        "name": "ROLE_PDTS_SPONSOR_REPRESENTATIVE"
+      },
+      {
+        "name": "ROLE_SYS_ADMIN"
+      },
+      {
+        "name": "ROLE_PDTS_CORE_USER"
+      },
+      {
+        "name": "ROLE_PDTS_RESEARCH_NURSE_TEAM_LEAD"
+      }
+    ],
+    "lastModifiedBy": "System",
+    "lastModifiedDate": "2020-06-19T20:44:50.193548Z"
+  },
   "books": [
     {
       "id": 1,
       "title": "Java Fundamentals",
-      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+      "isbn": "6ba3ee1e-981a-4c2d-9d64-e55bf460b078",
+      "author": "John Doe"
     },
     {
       "id": 2,
       "title": "React Fundamentals",
-      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+      "isbn": "a6304bb3-15ea-4ef3-ad10-db67e57edcbb",
+      "author": "Jack Reacher"
     },
     {
       "id": 3,
       "title": "Angular Fundamentals",
-      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+      "isbn": "5482533b-a4d5-4813-b42b-1605033854c9",
+      "author": "Tom Hanks"
     },
     {
       "id": 4,
       "title": "Node Fundamentals",
-      "isbn": "nkjskjsg-snfsgkg-gf939-dkjdkd8"
+      "isbn": "dd385599-9390-4086-b659-898ecb930c88",
+      "author": "Tom Cruise"
+    },
+    {
+      "id": 5,
+      "title": "Java 17 Essentials",
+      "isbn": "1078fd15-7764-4fb2-860f-c6cb6850c90d",
+      "author": "Steve Harvey"
+    },
+    {
+      "id": 6,
+      "title": "Hit Refresh",
+      "isbn": "53254914-9a91-4fc9-afa9-cd0b9826f846",
+      "author": "Satya Nadella"
+    },
+    {
+      "id": 7,
+      "title": "Rich Dad and Poor Dad",
+      "isbn": "3afb8849-06db-4019-a5b7-c816490432fa",
+      "author": "John K"
+    },
+    {
+      "id": 8,
+      "title": "Becoming",
+      "isbn": "83569660-6f97-492b-96e9-bbb520d8555a",
+      "author": "Michelle Obama"
+    },
+    {
+      "id": 9,
+      "title": "Angular Architects",
+      "isbn": "e95496a6-53d5-4a65-a1c3-ed3b0a84bd5b",
+      "author": "Jeff Cross"
+    },
+    {
+      "id": 10,
+      "title": "Next.JS Advanced",
+      "isbn": "afaf72be-b8de-470e-b4ed-021b60a4c2d0",
+      "author": "Lee Robinson"
+    },
+    {
+      "id": 11,
+      "title": "React Guide",
+      "isbn": "68f2265e-aeda-4eb8-88ad-bc59e20538ef",
+      "author": "Dan Abrav"
+    },
+    {
+      "id": 12,
+      "title": "React with TS",
+      "isbn": "95e5210f-54a6-4f47-96a3-8608ffd00cf4",
+      "author": "Matt Port"
     }
   ],
   "comments": [
