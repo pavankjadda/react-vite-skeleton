@@ -10,7 +10,7 @@ import { LoadingButton } from '@mui/lab';
 import { UpdateState } from '../../shared/UpdateState';
 import { ERROR, SUCCESS } from '../../../constants/StateConstants';
 import { LoginService } from '../../../services/LoginService';
-import { HTTP_200, HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
+import { HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
 import { ROLE_CRMS_CORE_USER } from '../../../constants/AuthorityConstants';
 import { createUser } from '../../../state/reducers/UserReducer';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
@@ -76,34 +76,31 @@ export default function LoginForm(): JSX.Element {
 					loading: false,
 				}));
 
-				//Login Success
-				if (response?.status === HTTP_200) {
-					//Check if user has proper roles to log in to the system
-					if (response.data.authorities.find((authority) => authority.name === ROLE_CRMS_CORE_USER) === undefined) {
-						setLoadingState({
-							loading: false,
-							status: ERROR,
-							message: 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support',
-						});
-					} else {
-						setLoadingState((loadingState) => ({
-							...loadingState,
-							loading: false,
-							status: SUCCESS,
-						}));
-						//Set Cookies and update Redux state
-						setCookie('X-Auth-Token', response.data.token);
-						setCookie('currentUser', JSON.stringify(response.data));
-						setCookie('isLoggedIn', 'true');
+				//Check if user has proper roles to log in to the system
+				if (response.data.authorities.find((authority) => authority.name === ROLE_CRMS_CORE_USER) === undefined) {
+					setLoadingState({
+						loading: false,
+						status: ERROR,
+						message: 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support',
+					});
+				} else {
+					setLoadingState((loadingState) => ({
+						...loadingState,
+						loading: false,
+						status: SUCCESS,
+					}));
+					//Set Cookies and update Redux state
+					setCookie('X-Auth-Token', response.data.token);
+					setCookie('currentUser', JSON.stringify(response.data));
+					setCookie('isLoggedIn', 'true');
 
-						//Update user in State
-						dispatch(createUser(response.data));
+					//Update user in State
+					dispatch(createUser(response.data));
 
-						// Navigate to previous page or home page
-						navigate(getCookie('redirectUrl') === undefined || getCookie('redirectUrl') === '/login' ? '/home' : getCookie('redirectUrl'), {
-							replace: true,
-						});
-					}
+					// Navigate to previous page or home page
+					navigate(getCookie('redirectUrl') === undefined || getCookie('redirectUrl') === '/login' ? '/home' : getCookie('redirectUrl'), {
+						replace: true,
+					});
 				}
 			})
 			.catch((error) => {
