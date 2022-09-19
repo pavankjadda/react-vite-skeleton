@@ -13,7 +13,7 @@ export function AdminGuardedRoute({ children }: { children: JSX.Element }): JSX.
 	let location = useLocation();
 	const { isSysAdmin } = useAuthService();
 
-	if (isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
+	if (!isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
 	else if (isUserLoggedIn() && !isSysAdmin()) return <Navigate to="unauthorized" state={{ from: location }} replace />;
 	return children;
 }

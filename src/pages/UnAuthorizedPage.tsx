@@ -1,10 +1,8 @@
 import React from 'react';
-import Unauthorized from '../components/core/unauthorized/Unauthorized';
+import Unauthorized from '../features/core/unauthorized/Unauthorized';
 
 function UnauthorizedPage(): JSX.Element {
-    return (
-        <Unauthorized/>
-    );
+	return <Unauthorized />;
 }
 
 export default UnauthorizedPage;

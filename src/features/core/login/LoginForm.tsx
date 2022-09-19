@@ -7,14 +7,15 @@ import { useDispatch } from 'react-redux';
 import useCookies from '@js-smart/react-cookie-service';
 import { resetReduxStore } from '../../../state/reducers/RootReducer';
 import { LoadingButton } from '@mui/lab';
-import { UpdateState } from '../../shared/UpdateState';
-import { ERROR, SUCCESS } from '../../../constants/StateConstants';
+import { ProgressState } from '../../../components/ProgressState';
+import { SUCCESS } from '../../../constants/StateConstants';
 import { LoginService } from '../../../services/LoginService';
 import { HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
 import { ROLE_CRMS_CORE_USER } from '../../../constants/AuthorityConstants';
 import { createUser } from '../../../state/reducers/UserReducer';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { initializeState, markError } from '../../../util/UpdateStateUtils';
 
 interface LoginFormInput {
 	username: string;
@@ -27,7 +28,7 @@ const schema = Yup.object({
 });
 
 export default function LoginForm(): JSX.Element {
-	const [loadingState, setLoadingState] = useState<UpdateState>({ loading: false, status: undefined, message: '' });
+	const [loadingState, setLoadingState] = useState<ProgressState>(initializeState());
 	const { getCookie, setCookie, deleteAllCookies } = useCookies();
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -78,11 +79,9 @@ export default function LoginForm(): JSX.Element {
 
 				//Check if user has proper roles to log in to the system
 				if (response.data.authorities.find((authority) => authority.name === ROLE_CRMS_CORE_USER) === undefined) {
-					setLoadingState({
-						loading: false,
-						status: ERROR,
-						message: 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support',
-					});
+					setLoadingState(
+						markError(loadingState, 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support')
+					);
 				} else {
 					setLoadingState((loadingState) => ({
 						...loadingState,
@@ -104,29 +103,12 @@ export default function LoginForm(): JSX.Element {
 				}
 			})
 			.catch((error) => {
-				setLoadingState({ loading: false, status: ERROR, message: '' });
+				markError(loadingState, '');
 				//Set error status and message
-				if (error?.response?.status === HTTP_403)
-					setLoadingState((loadingState) => ({
-						...loadingState,
-						loading: false,
-						status: ERROR,
-						message: 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support',
-					}));
+				if (error?.response?.status === HTTP_403) markError(loadingState, '');
 				else if (error?.response?.status >= HTTP_500)
-					setLoadingState((loadingState) => ({
-						...loadingState,
-						loading: false,
-						status: ERROR,
-						message: 'Login unsuccessful.  Unable to contact the server, please try again after few minutes',
-					}));
-				else
-					setLoadingState((loadingState) => ({
-						...loadingState,
-						loading: false,
-						status: ERROR,
-						message: 'Login unsuccessful. ' + error?.response?.data,
-					}));
+					markError(loadingState, 'Login unsuccessful.  Unable to contact the server, please try again after few minutes');
+				else markError(loadingState, 'Login unsuccessful. ' + error?.response?.data);
 			});
 	};
 
@@ -200,7 +182,7 @@ export default function LoginForm(): JSX.Element {
 			</div>
 			{/* Loading Error */}
 			<div className="row" style={{ padding: '20px' }}>
-				{!loadingState.loading && loadingState.status === ERROR && <h6 style={{ color: 'red' }}>{loadingState.message}</h6>}
+				{!loadingState.loading && loadingState.error && <h6 style={{ color: 'red' }}>{loadingState.message}</h6>}
 			</div>
 		</form>
 	);

@@ -1,10 +1,8 @@
 import React from 'react';
-import Logout from '../components/core/logout/Logout';
+import Logout from '../features/core/logout/Logout';
 
 function LogoutPage(): JSX.Element {
-    return (
-        <Logout/>
-    );
+	return <Logout />;
 }
 
 export default LogoutPage;

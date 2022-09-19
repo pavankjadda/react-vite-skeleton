@@ -12,6 +12,9 @@ import LogoutPage from '../pages/LogoutPage';
 import UnauthorizedPage from '../pages/UnAuthorizedPage';
 import FaqPage from '../pages/FaqPage';
 import NotFoundPage from '../pages/NotFoundPage';
+import FindBookPage from '../pages/FindBookPage';
+import AllBooksPage from '../pages/AllBooksPage';
+import ViewBookPage from '../pages/ViewBookPage';
 
 /**
  * Define all Routes and Sub-Routes
@@ -54,6 +57,34 @@ export default function AppRoutes(): JSX.Element {
 						</ReadOnlyAccessGuardedRoute>
 					}
 				/>
+
+				{/* Books Routes */}
+				<Route path="book">
+					<Route
+						element={
+							<ReadOnlyAccessGuardedRoute>
+								<AllBooksPage />
+							</ReadOnlyAccessGuardedRoute>
+						}
+						path="all"
+					/>
+					<Route
+						element={
+							<ReadOnlyAccessGuardedRoute>
+								<FindBookPage />
+							</ReadOnlyAccessGuardedRoute>
+						}
+						path="find"
+					/>
+					<Route
+						element={
+							<ReadOnlyAccessGuardedRoute>
+								<ViewBookPage />
+							</ReadOnlyAccessGuardedRoute>
+						}
+						path=":id"
+					/>
+				</Route>
 
 				{/* Report Routes */}
 				<Route
