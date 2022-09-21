@@ -16,6 +16,7 @@ import { createUser } from '../../../state/reducers/UserReducer';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { initializeState, markError } from '../../../util/UpdateStateUtils';
+import { isUndefinedOrNullOrEmpty } from '../../../util/StringUtils';
 
 interface LoginFormInput {
 	username: string;
@@ -97,9 +98,14 @@ export default function LoginForm(): JSX.Element {
 					dispatch(createUser(response.data));
 
 					// Navigate to previous page or home page
-					navigate(getCookie('redirectUrl') === undefined || getCookie('redirectUrl') === '/login' ? '/home' : getCookie('redirectUrl'), {
-						replace: true,
-					});
+					navigate(
+						isUndefinedOrNullOrEmpty(getCookie('redirectUrl')) || getCookie('redirectUrl') === '/login'
+							? '/home'
+							: getCookie('redirectUrl'),
+						{
+							replace: true,
+						}
+					);
 				}
 			})
 			.catch((error) => {
