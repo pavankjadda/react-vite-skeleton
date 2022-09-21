@@ -6,7 +6,7 @@
     "firstName": "Pavan Kumar",
     "lastName": "Jadda",
     "displayName": null,
-    "email": "pavankumar.jadda@nih.gov",
+    "email": "pavankumar.jadda@example.com",
     "active": true,
     "credentialsNonExpired": true,
     "accountNonLocked": true,

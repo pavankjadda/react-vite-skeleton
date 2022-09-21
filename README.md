@@ -1,14 +1,14 @@
-# A Create React App (CRA) skeleton project
+# React App skeleton project with Vite
 
-A Create React App (CRA) skeleton project that can be used as base lint/skeleton for new React projects
+React App skeleton project that can be used as baseline/skeleton for new React projects
 
-1. React
+1. React 18.x
 2. Redux
-3. React Router
-4. Material UI
+3. React Router 6.x
+4. Material UI 5.x
 5. Axios
 6. React Hook Form
-7. Vite
+7. Vite 3.x
 
 ### Run the Project on Local Machine
 
@@ -19,7 +19,7 @@ A Create React App (CRA) skeleton project that can be used as base lint/skeleton
    ```
 3. Start react project using NPM command
     ```shell
-    npm start --watch
+    npm run dev
     ```
 4. Go to http://localhost:3000 to access the website
 
@@ -31,12 +31,12 @@ A Create React App (CRA) skeleton project that can be used as base lint/skeleton
     ```
 2. Build docker image
     ```shell
-    docker build . -t cra_app
+    docker build . -t react_app
     ```
-4. Run docker image`
+3. Run docker image`
 
     ```shell
     docker run -p 3000:80 cra_app
     ```
-5. Go to http://localhost:3000 to access the website 
+4. Go to http://localhost:3000 to access the website 
 

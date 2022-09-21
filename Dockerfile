@@ -1,7 +1,6 @@
 
 ## Use Nginx alpine image
 FROM nginx:stable-alpine as nginx
-LABEL maintainer="jaddap2@nih.gov"
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*

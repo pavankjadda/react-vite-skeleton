@@ -134,7 +134,7 @@ export default function LoginForm(): JSX.Element {
 							id="username"
 							label="Username"
 							variant="filled"
-							placeholder="Use your NIH Username"
+							placeholder="Use your Username"
 							error={errors.username !== undefined}
 							helperText={errors.username && errors.username.message}
 							{...field}
@@ -157,7 +157,7 @@ export default function LoginForm(): JSX.Element {
 							id="password"
 							label="Password"
 							variant="filled"
-							placeholder="Use your NIH Password"
+							placeholder="Use your Password"
 							error={errors.password !== undefined}
 							helperText={errors.password && errors.password.message}
 							{...field}
