@@ -1,5 +1,5 @@
 import { BOOK_API_URL } from '../../constants/ApiConstants';
-import { crmsApi } from './CrmsApi';
+import { crmsApi } from './crmsApi';
 import { Book } from '../../types/Book';
 
 export const bookApi = crmsApi.injectEndpoints({

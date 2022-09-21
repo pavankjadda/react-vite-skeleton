@@ -1,11 +1,10 @@
-import {AnyAction, combineReducers, Reducer} from "redux";
-import {preferencesReducer} from "./PreferencesReducer";
-import {userReducer} from "./UserReducer";
-import {documentCategoryApi} from "../api/DocumentCategoryApi";
-import {createAction} from "@reduxjs/toolkit";
-import {RootState} from '../store';
-import {bookApi} from '../api/bookApi';
-import {bookManagerSlice} from './BookEntityReducer';
+import { AnyAction, combineReducers, Reducer } from 'redux';
+import { preferencesReducer } from './PreferencesReducer';
+import { userReducer } from './UserReducer';
+import { createAction } from '@reduxjs/toolkit';
+import { RootState } from '../store';
+import { bookApi } from '../api/bookApi';
+import { bookManagerSlice } from './BookEntityReducer';
 
 /**
  * Combine all reducers into Root Reducer
@@ -14,11 +13,10 @@ import {bookManagerSlice} from './BookEntityReducer';
  * @since 1.0.0
  */
 const allReducers = combineReducers({
-    user: userReducer,
-    bookManager: bookManagerSlice.reducer,
-    preferences: preferencesReducer,
-    [bookApi.reducerPath]: bookApi.reducer,
-    [documentCategoryApi.reducerPath]: documentCategoryApi.reducer,
+	user: userReducer,
+	bookManager: bookManagerSlice.reducer,
+	preferences: preferencesReducer,
+	[bookApi.reducerPath]: bookApi.reducer,
 });
 
 /**
@@ -29,7 +27,6 @@ const allReducers = combineReducers({
  */
 export const resetReduxStore = createAction('core/resetReduxStore');
 
-
 /**
  * Reset Store when loaded login page
  *
@@ -37,8 +34,8 @@ export const resetReduxStore = createAction('core/resetReduxStore');
  * @since 1.0.0
  */
 export const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
-    if (action.type === resetReduxStore.type) {
-        state = undefined;
-    }
-    return allReducers(state, action);
+	if (action.type === resetReduxStore.type) {
+		state = undefined;
+	}
+	return allReducers(state, action);
 };

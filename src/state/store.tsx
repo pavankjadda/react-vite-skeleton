@@ -1,6 +1,6 @@
-import {configureStore} from "@reduxjs/toolkit";
-import {crmsApi} from "./api/CrmsApi";
-import {rootReducer} from "./reducers/RootReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import { crmsApi } from './api/crmsApi';
+import { rootReducer } from './reducers/RootReducer';
 
 /**
  * Configure Global Redux store
@@ -9,9 +9,9 @@ import {rootReducer} from "./reducers/RootReducer";
  * @since 1.0.0
  */
 export const store = configureStore({
-    reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck: false}).concat(crmsApi.middleware)
+	reducer: rootReducer,
+	middleware: (getDefaultMiddleware) => getDefaultMiddleware({ serializableCheck: false }).concat(crmsApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = ReturnType<typeof store.getState>;
