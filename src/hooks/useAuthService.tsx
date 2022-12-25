@@ -1,12 +1,11 @@
 import useCookies from '@js-smart/react-cookie-service';
-import { ROLE_CRMS_DATA_USER, ROLE_CRMS_PSO_MANAGER, ROLE_CRMS_READONLY_USER, ROLE_CRMS_SYS_ADMIN } from '../constants/AuthorityConstants';
+import { ROLE_DATA_USER, ROLE_READONLY_USER, ROLE_SYS_ADMIN } from '../constants/AuthorityConstants';
 import { User } from '../features/user/User';
 
 export default function useAuthService(): {
 	getCurrentUser: () => User | undefined;
 	isDataUser: () => boolean;
 	isUserLoggedIn: () => boolean;
-	isPsoManager: () => boolean;
 	isLoggedIn: () => boolean;
 	isReadOnlyUser: () => boolean;
 	isSysAdmin: () => boolean;
@@ -40,17 +39,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isReadOnlyUser(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_CRMS_READONLY_USER) !== undefined;
-	}
-
-	/**
-	 * Returns true if the user has PSO Manager Role
-	 *
-	 * @author Pavan Kumar Jadda
-	 * @since 1.0.0
-	 */
-	function isPsoManager(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_CRMS_PSO_MANAGER) !== undefined;
+		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_READONLY_USER) !== undefined;
 	}
 
 	/**
@@ -60,7 +49,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isDataUser(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_CRMS_DATA_USER) !== undefined;
+		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_DATA_USER) !== undefined;
 	}
 
 	/**
@@ -70,7 +59,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isSysAdmin(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_CRMS_SYS_ADMIN) !== undefined;
+		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_SYS_ADMIN) !== undefined;
 	}
 
 	/**
@@ -83,5 +72,5 @@ export default function useAuthService(): {
 		return check('currentUser') ? (JSON.parse(getCookie('currentUser')) as User) : undefined;
 	}
 
-	return { getCurrentUser, isLoggedIn, isUserLoggedIn, isReadOnlyUser, isDataUser, isPsoManager, isSysAdmin };
+	return { getCurrentUser, isLoggedIn, isUserLoggedIn, isReadOnlyUser, isDataUser, isSysAdmin };
 }

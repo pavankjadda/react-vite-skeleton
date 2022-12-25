@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import './Login.scss';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { Grid, TextField, Typography } from '@mui/material';
-import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { yupResolver } from '@hookform/resolvers/yup';
 import useCookies from '@js-smart/react-cookie-service';
-import { resetReduxStore } from '../../../state/reducers/RootReducer';
 import { LoadingButton } from '@mui/lab';
+import { Grid, TextField, Typography } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import * as Yup from 'yup';
 import { ProgressState } from '../../../components/ProgressState';
+import { ROLE_CORE_USER } from '../../../constants/AuthorityConstants';
+import { HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
 import { SUCCESS } from '../../../constants/StateConstants';
 import { LoginService } from '../../../services/LoginService';
-import { HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
-import { ROLE_CRMS_CORE_USER } from '../../../constants/AuthorityConstants';
+import { resetReduxStore } from '../../../state/reducers/RootReducer';
 import { createUser } from '../../../state/reducers/UserReducer';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { initializeState, markError } from '../../../util/UpdateStateUtils';
 import { isUndefinedOrNullOrEmpty } from '../../../util/StringUtils';
+import { initializeState, markError } from '../../../util/UpdateStateUtils';
+import './Login.scss';
 
 interface LoginFormInput {
 	username: string;
@@ -79,7 +79,7 @@ export default function LoginForm(): JSX.Element {
 				}));
 
 				//Check if user has proper roles to log in to the system
-				if (response.data.authorities.find((authority) => authority.name === ROLE_CRMS_CORE_USER) === undefined) {
+				if (response.data.authorities.find((authority) => authority.name === ROLE_CORE_USER) === undefined) {
 					setLoadingState(
 						markError(loadingState, 'Login unsuccessful. You are not authorized to login into CRA Skeleton App. Please contact support')
 					);
@@ -111,10 +111,13 @@ export default function LoginForm(): JSX.Element {
 			.catch((error) => {
 				markError(loadingState, '');
 				//Set error status and message
-				if (error?.response?.status === HTTP_403) markError(loadingState, '');
-				else if (error?.response?.status >= HTTP_500)
+				if (error?.response?.status === HTTP_403) {
+					markError(loadingState, '');
+				} else if (error?.response?.status >= HTTP_500) {
 					markError(loadingState, 'Login unsuccessful.  Unable to contact the server, please try again after few minutes');
-				else markError(loadingState, 'Login unsuccessful. ' + error?.response?.data);
+				} else {
+					markError(loadingState, 'Login unsuccessful. ' + error?.response?.data);
+				}
 			});
 	};
 

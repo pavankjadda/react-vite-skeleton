@@ -1,7 +1,7 @@
 {
   "authenticate": {
     "id": 1,
-    "username": "jaddap2",
+    "username": "pjadda",
     "password": null,
     "firstName": "Pavan Kumar",
     "lastName": "Jadda",
@@ -23,22 +23,7 @@
     },
     "authorities": [
       {
-        "name": "ROLE_PDTS_STAFF"
-      },
-      {
         "name": "ROLE_CORE_USER"
-      },
-      {
-        "name": "ROLE_PHARMACY_USER"
-      },
-      {
-        "name": "ROLE_CRMS_PSO_MANAGER"
-      },
-      {
-        "name": "ROLE_ADMIN_PSO"
-      },
-      {
-        "name": "ROLE_CRMS_CORE_USER"
       },
       {
         "name": "ROLE_REGISTERING_USER"
@@ -50,34 +35,13 @@
         "name": "ROLE_DATA_ADMIN"
       },
       {
-        "name": "ROLE_CRMS_DATA_USER"
-      },
-      {
-        "name": "ROLE_CRMS_READONLY_USER"
-      },
-      {
-        "name": "ROLE_CRMS_SYS_ADMIN"
-      },
-      {
         "name": "ROLE_READONLY_USER"
       },
       {
         "name": "ROLE_DATA_USER"
       },
       {
-        "name": "ROLE_PDTS_RESEARCH_NURSE"
-      },
-      {
-        "name": "ROLE_PDTS_SPONSOR_REPRESENTATIVE"
-      },
-      {
         "name": "ROLE_SYS_ADMIN"
-      },
-      {
-        "name": "ROLE_PDTS_CORE_USER"
-      },
-      {
-        "name": "ROLE_PDTS_RESEARCH_NURSE_TEAM_LEAD"
       }
     ],
     "lastModifiedBy": "System",
