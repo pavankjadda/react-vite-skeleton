@@ -28,7 +28,7 @@ const schema = Yup.object({
 	password: Yup.string().max(40, 'Must be 40 characters or less').required('Password is Required'),
 });
 
-export default function LoginForm(): JSX.Element {
+export default function LoginForm(): React.JSX.Element {
 	const [loadingState, setLoadingState] = useState<ProgressState>(initializeState());
 	const { getCookie, setCookie, deleteAllCookies } = useCookies();
 	const dispatch = useDispatch();

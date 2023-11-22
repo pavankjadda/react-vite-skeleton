@@ -9,7 +9,7 @@ import useAuthService from '../../../hooks/useAuthService';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../state/store';
 
-export default function SideBarContainer(): JSX.Element {
+export default function SideBarContainer(): React.JSX.Element {
 	const user = useSelector((state: RootState) => state.user);
 	const { isUserLoggedIn } = useAuthService();
 	useEffect(() => {}, [user]);

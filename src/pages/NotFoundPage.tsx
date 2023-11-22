@@ -1,7 +1,7 @@
 import React from 'react';
 import NotFound from '../features/core/404/NotFound';
 
-function NotFoundPage(): JSX.Element {
+function NotFoundPage(): React.JSX.Element {
 	return <NotFound />;
 }
 

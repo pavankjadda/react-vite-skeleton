@@ -18,7 +18,7 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-function DrawerContent(): JSX.Element {
+function DrawerContent(): React.JSX.Element {
 	const navigate = useNavigate();
 
 	return (

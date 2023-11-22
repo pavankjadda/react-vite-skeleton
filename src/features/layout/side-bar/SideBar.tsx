@@ -7,7 +7,7 @@ import { RootState } from '../../../state/store';
 import DrawerContent from './DrawerContent';
 import ReactIf from '../../../components/ReactIf';
 
-export default function SideBar(): JSX.Element {
+export default function SideBar(): React.JSX.Element {
 	const drawerOpen = useSelector((state: RootState) => state.preferences.drawerOpen);
 	return (
 		<div>

@@ -13,7 +13,7 @@ import BreadCrumbs from '../breadcrumbs/BreadCrumbs';
 import useAuthService from '../../../hooks/useAuthService';
 import ProfileMenu from './ProfileMenu';
 
-export default function Header(): JSX.Element {
+export default function Header(): React.JSX.Element {
 	const dispatch = useDispatch();
 	const drawerOpen = useSelector((state: RootState) => state.preferences.drawerOpen);
 	const { isUserLoggedIn } = useAuthService();

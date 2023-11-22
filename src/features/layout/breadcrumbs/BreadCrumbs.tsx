@@ -6,7 +6,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { useQuery } from '@tanstack/react-query';
 import { BookService } from '../../../services/BookService';
 
-export default function BreadCrumbs(): JSX.Element {
+export default function BreadCrumbs(): React.JSX.Element {
 	const { data } = useQuery({
 		queryKey: ['books'],
 		queryFn: () => BookService.getAllBooks(),

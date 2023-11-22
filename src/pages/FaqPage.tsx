@@ -1,7 +1,7 @@
 import React from 'react';
 import Faq from '../features/help/Faq';
 
-function FaqPage(): JSX.Element {
+function FaqPage(): React.JSX.Element {
 	return <Faq />;
 }
 

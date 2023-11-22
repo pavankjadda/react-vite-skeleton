@@ -10,7 +10,7 @@ import ReactIf from '../../components/ReactIf';
 import { Alert } from '@mui/material';
 import useCookies from '@js-smart/react-cookie-service';
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
 	const [loadingState, setLoadingState] = useState<ProgressState>(initializeState());
 	const { setCookie } = useCookies();
 	const dispatch = useDispatch();

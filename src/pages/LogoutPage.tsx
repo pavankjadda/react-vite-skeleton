@@ -1,7 +1,7 @@
 import React from 'react';
 import Logout from '../features/core/logout/Logout';
 
-function LogoutPage(): JSX.Element {
+function LogoutPage(): React.JSX.Element {
 	return <Logout />;
 }
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Accordion, AccordionDetails, AccordionSummary, Card, CardContent, Divider, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function Faq(): JSX.Element {
+export default function Faq(): React.JSX.Element {
 	return (
 		<Card elevation={24} className={'container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10'}>
 			<CardContent>

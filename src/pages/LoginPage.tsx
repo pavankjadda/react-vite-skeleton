@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from '../features/core/login/Login';
 
-function LoginPage(): JSX.Element {
+function LoginPage(): React.JSX.Element {
 	return <Login />;
 }
 

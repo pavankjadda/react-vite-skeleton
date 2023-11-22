@@ -8,7 +8,7 @@ import useAuthService from '../hooks/useAuthService';
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-export function ReadOnlyAccessGuardedRoute({ children }: { children: JSX.Element }): JSX.Element {
+export function ReadOnlyAccessGuardedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
 	const { isUserLoggedIn } = useAuthService();
 	let location = useLocation();
 	const { isReadOnlyUser } = useAuthService();

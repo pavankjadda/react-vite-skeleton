@@ -23,7 +23,7 @@ import HelpPage from '../pages/HelpPage';
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-export default function AppRoutes(): JSX.Element {
+export default function AppRoutes(): React.JSX.Element {
 	return (
 		<div>
 			<Routes>

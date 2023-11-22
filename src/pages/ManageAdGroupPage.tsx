@@ -1,9 +1,7 @@
 import React from 'react';
 
-function ManageAdGroupPage(): JSX.Element {
-    return (
-        <ManageAdGroupPage/>
-    );
+function ManageAdGroupPage(): React.JSX.Element {
+	return <ManageAdGroupPage />;
 }
 
 export default ManageAdGroupPage;

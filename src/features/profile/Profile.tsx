@@ -7,7 +7,7 @@ import { ProgressState } from '../../components/ProgressState';
 import ReactIf from '../../components/ReactIf';
 import { initializeState, markError, markSuccess } from '../../util/UpdateStateUtils';
 
-export default function Profile(): JSX.Element {
+export default function Profile(): React.JSX.Element {
 	const { check, getCookie } = useCookies();
 	const [user] = useState<User | undefined>(check('currentUser') ? (JSON.parse(getCookie('currentUser')) as User) : undefined);
 	const [userProfile, setUserProfile] = useState<User | undefined>();
@@ -40,16 +40,16 @@ export default function Profile(): JSX.Element {
 				<Typography style={{ marginBottom: '30px', fontWeight: 'bold' }} variant="h6" component="div">
 					Basic Information
 				</Typography>
-				
+
 				<div className="row" style={{ marginLeft: '10px' }}>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight: '1rem' }} className="row">
 							First Name:
 						</label>
 						<label className="row">{userProfile?.firstName}</label>
 					</div>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight: '1rem' }} className="row">
 							Last Name:
 						</label>
 						<label className="row">{userProfile?.lastName}</label>
@@ -58,14 +58,14 @@ export default function Profile(): JSX.Element {
 
 				<div className="row" style={{ marginLeft: '10px' }}>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight: '1rem' }} className="row">
 							Username:
 						</label>
 						<label className="row">{user?.username}</label>
 					</div>
 
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight: '1rem' }} className="row">
 							Email:
 						</label>
 						<label className="row">{userProfile?.email}</label>

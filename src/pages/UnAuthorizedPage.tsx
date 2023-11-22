@@ -1,7 +1,7 @@
 import React from 'react';
 import Unauthorized from '../features/core/unauthorized/Unauthorized';
 
-function UnauthorizedPage(): JSX.Element {
+function UnauthorizedPage(): React.JSX.Element {
 	return <Unauthorized />;
 }
 

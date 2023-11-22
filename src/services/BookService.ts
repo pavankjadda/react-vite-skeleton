@@ -15,7 +15,7 @@ export class BookService {
 	 * @author Pavan Kumar Jadda
 	 * @since 1.0.0
 	 */
-	static getAllBooks(): Promise<Book[]> {
-		return axios.get<Book[]>(`${BASE_API_URL+ BOOK_API_URL}/books`).then((response) => response.data);
+	static async getAllBooks(): Promise<Book[]> {
+		return await axios.get<Book[]>(`${BASE_API_URL + BOOK_API_URL}/books`).then((response) => response.data);
 	}
 }

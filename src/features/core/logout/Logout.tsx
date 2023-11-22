@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import useCookies from '@js-smart/react-cookie-service';
 
-export default function Logout(): JSX.Element {
+export default function Logout(): React.JSX.Element {
 	const navigate = useNavigate();
 	const { deleteCookie, deleteAllCookies } = useCookies();
 

@@ -13,15 +13,11 @@ React App skeleton project that can be used as baseline/skeleton for new React p
 ### Run the Project on Local Machine
 
 1. Clone the project
-2. Start the Mock Backend server using the following command
-   ```shell
-    json-server db.json --routes routes.json --port 8080
-   ```
-3. Start react project using NPM command
+2. Start react project using NPM command
     ```shell
     npm run dev
     ```
-4. Go to http://localhost:3000 to access the website
+3. Go to http://localhost:3000 to access the website
 
 ### Run production build on Docker
 
