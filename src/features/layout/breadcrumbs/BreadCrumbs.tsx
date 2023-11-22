@@ -3,10 +3,15 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import React from 'react';
 import { Link as RouterLink, matchPath, useLocation } from 'react-router-dom';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import { useGetBooksQuery } from '../../../state/api/bookApi';
+import { useQuery } from '@tanstack/react-query';
+import { BookService } from '../../../services/BookService';
 
 export default function BreadCrumbs(): JSX.Element {
-	const { data } = useGetBooksQuery();
+	const { data } = useQuery({
+		queryKey: ['books'],
+		queryFn: () => BookService.getAllBooks(),
+	});
+
 	const { pathname } = useLocation();
 	const homeMatches = matchPath('/*', pathname) || matchPath('/home', pathname);
 	const faqMatches = matchPath('/faq', pathname);

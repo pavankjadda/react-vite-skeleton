@@ -1,13 +1,15 @@
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { useGetBooksQuery } from '../../../state/api/bookApi';
 import { isUndefinedOrNullOrEmpty } from '../../../util/StringUtils';
+import { useQuery } from '@tanstack/react-query';
+import { BookService } from '../../../services/BookService';
 
 export default function FindBookTable(props: { searchText: string }) {
-	let { data: books, isLoading } = useGetBooksQuery();
-	const [page, setPage] = useState(0);
-	const [pageSize, setPageSize] = useState(10);
+	const { data: books, isLoading } = useQuery({
+		queryKey: ['books'],
+		queryFn: () => BookService.getAllBooks(),
+	});
 
 	const filteredBooks = useMemo(() => {
 		return isUndefinedOrNullOrEmpty(props.searchText)
@@ -24,16 +26,15 @@ export default function FindBookTable(props: { searchText: string }) {
 		<div style={{ display: 'flex', height: '100%' }}>
 			<div style={{ flexGrow: 1 }}>
 				<DataGrid
+					initialState={{ pagination: { paginationModel: { pageSize: 10 } } }}
+					getRowId={(row) => row.id}
+					pageSizeOptions={[10, 20, 50, 100]}
+					disableRowSelectionOnClick={true}
+					density={'comfortable'}
 					loading={isLoading}
 					rows={filteredBooks ?? []}
 					columns={columns}
 					autoHeight={true}
-					page={page}
-					onPageChange={(newPage) => setPage(newPage)}
-					onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-					pageSize={pageSize}
-					rowsPerPageOptions={[10, 20, 50, 100]}
-					disableSelectionOnClick
 				/>
 			</div>
 		</div>

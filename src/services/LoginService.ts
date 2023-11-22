@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { USER_API_URL } from '../constants/ApiConstants';
+import { BASE_API_URL, USER_API_URL } from '../constants/ApiConstants';
 import { User } from '../features/user/User';
 
 /**
@@ -22,6 +22,6 @@ export class LoginService {
 			'content-type': 'application/json',
 			authorization: 'Basic ' + btoa(username + ':' + password),
 		};
-		return axios.get<User>(`${import.meta.env.VITE_REACT_APP_BASE_URL + USER_API_URL}/authenticate`, { headers });
+		return axios.get<User>(`${BASE_API_URL + USER_API_URL}/authenticate`, { headers });
 	}
 }

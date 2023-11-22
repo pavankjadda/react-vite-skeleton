@@ -1,13 +1,16 @@
 import { Grid, Paper } from '@mui/material';
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
 import React from 'react';
-import { useGetBooksQuery } from '../../../state/api/bookApi';
 import { Link } from 'react-router-dom';
+import { useQuery } from '@tanstack/react-query';
+import { BookService } from '../../../services/BookService';
 
 export default function AllBooks() {
-	const { data: books, isLoading } = useGetBooksQuery();
-	const [page, setPage] = React.useState(0);
-	const [pageSize, setPageSize] = React.useState(10);
+	const { data: books, isLoading } = useQuery({
+		queryKey: ['books'],
+		queryFn: () => BookService.getAllBooks(),
+	});
+
 	return (
 		<Grid container className="custom-flex-justify-center" style={{ height: 'auto', width: '100%' }}>
 			<Grid item xs={12} sm={12} md={12} lg={11} xl={11}>
@@ -16,16 +19,15 @@ export default function AllBooks() {
 					<div style={{ display: 'flex', height: '100%' }}>
 						<div style={{ flexGrow: 1 }}>
 							<DataGrid
+								initialState={{ pagination: { paginationModel: { pageSize: 10 } } }}
+								getRowId={(row) => row.id}
+								pageSizeOptions={[10, 20, 50, 100]}
+								disableRowSelectionOnClick={true}
+								density={'comfortable'}
 								loading={isLoading}
 								rows={books ?? []}
 								columns={columns}
 								autoHeight={true}
-								page={page}
-								onPageChange={(newPage) => setPage(newPage)}
-								onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-								pageSize={pageSize}
-								rowsPerPageOptions={[10, 20, 50, 100]}
-								disableSelectionOnClick
 							/>
 						</div>
 					</div>

@@ -3,7 +3,6 @@ import { preferencesReducer } from './PreferencesReducer';
 import { userReducer } from './UserReducer';
 import { createAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { bookApi } from '../api/bookApi';
 import { bookManagerSlice } from './BookEntityReducer';
 
 /**
@@ -16,7 +15,6 @@ const allReducers = combineReducers({
 	user: userReducer,
 	bookManager: bookManagerSlice.reducer,
 	preferences: preferencesReducer,
-	[bookApi.reducerPath]: bookApi.reducer,
 });
 
 /**

@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { User } from '../features/user/User';
-import { USER_API_URL } from '../constants/ApiConstants';
+import { BASE_API_URL, USER_API_URL } from '../constants/ApiConstants';
 
 /**
  * Utility class for Home Page operations
@@ -16,6 +16,6 @@ export class HomeService {
 	 * @since 1.0.0
 	 */
 	static getUserInformation(): Promise<AxiosResponse<User>> {
-		return axios.get<User>(import.meta.env.VITE_REACT_APP_BASE_URL + USER_API_URL + '/home');
+		return axios.get<User>(`${BASE_API_URL+ USER_API_URL}/authenticate`);
 	}
 }
