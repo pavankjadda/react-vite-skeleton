@@ -3,19 +3,21 @@ import React from 'react';
 import { AdminGuardedRoute } from './AdminGuardedRoute';
 import { ReadOnlyAccessGuardedRoute } from './ReadOnlyAccessGuardedRoute';
 import { DataUserGuardedRoute } from './DataUserGuardedRoute';
-import HomePage from '../pages/HomePage';
-import ProfilePage from '../pages/ProfilePage';
-import ReportsSearchPage from '../pages/ReportsSearchPage';
-import ManageAdGroupPage from '../pages/ManageAdGroupPage';
-import LoginPage from '../pages/LoginPage';
-import LogoutPage from '../pages/LogoutPage';
-import UnauthorizedPage from '../pages/UnAuthorizedPage';
-import FaqPage from '../pages/FaqPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import FindBookPage from '../pages/FindBookPage';
-import AllBooksPage from '../pages/AllBooksPage';
-import ViewBookPage from '../pages/ViewBookPage';
-import HelpPage from '../pages/HelpPage';
+
+// Lazy load all pages
+const HomePage = React.lazy(() => import('../pages/HomePage'));
+const LoginPage = React.lazy(() => import('../pages/LoginPage'));
+const LogoutPage = React.lazy(() => import('../pages/LogoutPage'));
+const UnauthorizedPage = React.lazy(() => import('../pages/UnAuthorizedPage'));
+const FaqPage = React.lazy(() => import('../pages/FaqPage'));
+const HelpPage = React.lazy(() => import('../pages/HelpPage'));
+const ProfilePage = React.lazy(() => import('../pages/ProfilePage'));
+const ReportsSearchPage = React.lazy(() => import('../pages/ReportsSearchPage'));
+const ManageAdGroupPage = React.lazy(() => import('../pages/ManageAdGroupPage'));
+const NotFoundPage = React.lazy(() => import('../pages/NotFoundPage'));
+const FindBookPage = React.lazy(() => import('../pages/FindBookPage'));
+const AllBooksPage = React.lazy(() => import('../pages/AllBooksPage'));
+const ViewBookPage = React.lazy(() => import('../pages/ViewBookPage'));
 
 /**
  * Define all Routes and Sub-Routes
