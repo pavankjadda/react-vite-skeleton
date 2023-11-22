@@ -22,6 +22,6 @@ export class LoginService {
 			'content-type': 'application/json',
 			authorization: 'Basic ' + btoa(username + ':' + password),
 		};
-		return axios.get<User>(import.meta.env.VITE_REACT_APP_BASE_URL + USER_API_URL + '/authenticate', { headers });
+		return axios.get<User>(`${import.meta.env.VITE_REACT_APP_BASE_URL + USER_API_URL}/authenticate`, { headers });
 	}
 }
