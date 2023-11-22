@@ -2,5 +2,6 @@
   "/api/v1/*": "/$1",
   "/user/authenticate/": "/authenticate",
   "/user/home": "/authenticate",
+  "/user/find/username/pjadda": "/authenticate",
   "/book/find/all/slim": "/books"
 }

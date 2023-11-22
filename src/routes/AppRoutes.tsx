@@ -15,6 +15,7 @@ import NotFoundPage from '../pages/NotFoundPage';
 import FindBookPage from '../pages/FindBookPage';
 import AllBooksPage from '../pages/AllBooksPage';
 import ViewBookPage from '../pages/ViewBookPage';
+import HelpPage from '../pages/HelpPage';
 
 /**
  * Define all Routes and Sub-Routes
@@ -31,6 +32,7 @@ export default function AppRoutes(): JSX.Element {
 				<Route element={<LogoutPage />} path="logout" />
 				<Route element={<UnauthorizedPage />} path="unauthorized" />
 				<Route element={<FaqPage />} path="faq" />
+				<Route element={<HelpPage />} path="help" />
 
 				{/* Read Only User Routes */}
 				<Route

@@ -40,32 +40,32 @@ export default function Profile(): JSX.Element {
 				<Typography style={{ marginBottom: '30px', fontWeight: 'bold' }} variant="h6" component="div">
 					Basic Information
 				</Typography>
-
-				<div className="row" style={{ margin: '10px' }}>
+				
+				<div className="row" style={{ marginLeft: '10px' }}>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
 							First Name:
 						</label>
 						<label className="row">{userProfile?.firstName}</label>
 					</div>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
 							Last Name:
 						</label>
 						<label className="row">{userProfile?.lastName}</label>
 					</div>
 				</div>
 
-				<div className="row" style={{ margin: '10px' }}>
+				<div className="row" style={{ marginLeft: '10px' }}>
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
 							Username:
 						</label>
 						<label className="row">{user?.username}</label>
 					</div>
 
 					<div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-						<label style={{ fontWeight: 'bold' }} className="row">
+						<label style={{ fontWeight: 'bold', marginRight:'1rem' }} className="row">
 							Email:
 						</label>
 						<label className="row">{userProfile?.email}</label>
