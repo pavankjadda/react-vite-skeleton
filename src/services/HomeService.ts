@@ -16,6 +16,6 @@ export class HomeService {
 	 * @since 1.0.0
 	 */
 	static getUserInformation(): Promise<AxiosResponse<User>> {
-		return axios.get<User>(`${BASE_API_URL+ USER_API_URL}/authenticate`);
+		return axios.get<User>(`${BASE_API_URL + USER_API_URL}/authenticate`);
 	}
 }

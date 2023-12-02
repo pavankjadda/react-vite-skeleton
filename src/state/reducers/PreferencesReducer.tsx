@@ -1,4 +1,4 @@
-import {createAction, createReducer} from "@reduxjs/toolkit";
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
 /**
  * Initialize the state
@@ -6,8 +6,7 @@ import {createAction, createReducer} from "@reduxjs/toolkit";
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-const initialState = {drawerOpen: true};
-
+const initialState = { drawerOpen: true };
 
 /**
  * Define Protocol Document Search Form Actions
@@ -17,7 +16,6 @@ const initialState = {drawerOpen: true};
  */
 export const toggleDrawerStatus = createAction('preferences/toggleDrawerStatus');
 
-
 /**
  * Define Protocol Document Search Form Reducer that handles actions
  *
@@ -25,7 +23,7 @@ export const toggleDrawerStatus = createAction('preferences/toggleDrawerStatus')
  * @since 1.0.0
  */
 export const preferencesReducer = createReducer(initialState, (builder) => {
-    builder.addCase(toggleDrawerStatus, (state) => {
-        state.drawerOpen = !state.drawerOpen;
-    });
+	builder.addCase(toggleDrawerStatus, (state) => {
+		state.drawerOpen = !state.drawerOpen;
+	});
 });

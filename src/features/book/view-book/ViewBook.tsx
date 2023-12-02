@@ -11,7 +11,7 @@ function ViewBook() {
 		queryKey: ['books'],
 		queryFn: () => BookService.getAllBooks(),
 	});
-	
+
 	const book = data?.find((b) => b?.id.toString() === id);
 
 	return (

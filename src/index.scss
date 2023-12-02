@@ -1,27 +1,27 @@
-@import "assets/css/general.scss";
-@import "assets/css/custom-table.scss";
-@import "assets/css/custom-buttons.scss";
-@import "assets/css/custom-form.scss";
+@import 'assets/css/general.scss';
+@import 'assets/css/custom-table.scss';
+@import 'assets/css/custom-buttons.scss';
+@import 'assets/css/custom-form.scss';
 
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+html,
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  font-family: "Open Sans", sans-serif !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	font-family: 'Open Sans', sans-serif !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-
 #root {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #dedede;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	background-color: #dedede;
 }
