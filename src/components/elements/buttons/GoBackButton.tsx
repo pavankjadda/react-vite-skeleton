@@ -1,13 +1,14 @@
 import React from 'react';
 import { IconButton, Tooltip } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 export default function GoBackButton() {
-	const router = useRouter();
+	const navigate = useNavigate();
+
 	return (
 		<Tooltip title="Go Back to Previous Page">
-			<IconButton color="primary" onClick={() => router.back()}>
+			<IconButton color="primary" onClick={() => navigate(-1)}>
 				<ArrowBackIosIcon />
 			</IconButton>
 		</Tooltip>

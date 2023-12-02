@@ -1,7 +1,7 @@
 import React from 'react';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Button } from '@mui/material';
-import { useRouter } from 'next/router';
+import { useNavigate } from 'react-router-dom';
 
 interface ManageButtonProps {
 	url: string;
@@ -10,11 +10,12 @@ interface ManageButtonProps {
 }
 
 export default function ManageButton(props: ManageButtonProps) {
-	const router = useRouter();
+	const navigate = useNavigate();
+
 	return (
 		<Button
 			className="pushRight"
-			onClick={() => router.push(props.url)}
+			onClick={() => navigate(props.url)}
 			variant="contained"
 			color="primary"
 			size={props.size ?? 'large'}

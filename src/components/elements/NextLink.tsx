@@ -1,9 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
-import { Link as MuiLink } from '@mui/material';
+import { Link, Link as MuiLink } from '@mui/material';
 
 /**
- * Reusable custom Next.js 13 Link component.
+ * Reusable custom React Router Link component.
  *
  * @param props Properties of the React Node
  *
