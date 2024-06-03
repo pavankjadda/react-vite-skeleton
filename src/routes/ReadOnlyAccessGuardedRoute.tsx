@@ -12,6 +12,7 @@ export function ReadOnlyAccessGuardedRoute({ children }: { children: React.JSX.E
 	const { isUserLoggedIn } = useAuthService();
 	let location = useLocation();
 	const { isReadOnlyUser } = useAuthService();
+
 	if (!isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
 	else if (isUserLoggedIn() && !isReadOnlyUser()) return <Navigate to="unauthorized" state={{ from: location }} replace />;
 	return children;
