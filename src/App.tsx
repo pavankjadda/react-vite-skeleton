@@ -7,7 +7,15 @@ import SideBarContainer from './features/layout/side-bar/SideBarContainer';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			refetchOnWindowFocus: true,
+			refetchOnMount: true,
+			refetchOnReconnect: true,
+		},
+	},
+});
 
 export default function App(): React.JSX.Element {
 	return (

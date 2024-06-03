@@ -3,7 +3,6 @@ import { preferencesReducer } from './PreferencesReducer';
 import { userReducer } from './UserReducer';
 import { createAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
-import { bookManagerSlice } from './BookEntityReducer';
 
 /**
  * Combine all reducers into Root Reducer
@@ -13,7 +12,6 @@ import { bookManagerSlice } from './BookEntityReducer';
  */
 const allReducers = combineReducers({
 	user: userReducer,
-	bookManager: bookManagerSlice.reducer,
 	preferences: preferencesReducer,
 });
 
