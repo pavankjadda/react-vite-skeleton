@@ -11,12 +11,12 @@ $word-document-color: #2b579a;
 
 /* Export the variables so that they can be used in the app */
 :export {
-  primaryColor: $primary-color;
-  secondaryColor: $secondary-color;
-  successColor: $success-color;
-  errorColor: $error-color;
-  whiteColor: $white-color;
-  backgroundColor: $background-color;
-  pdfDocumentColor: $pdf-color;
-  wordDocumentColor: $word-document-color;
+	primaryColor: $primary-color;
+	secondaryColor: $secondary-color;
+	successColor: $success-color;
+	errorColor: $error-color;
+	whiteColor: $white-color;
+	backgroundColor: $background-color;
+	pdfDocumentColor: $pdf-color;
+	wordDocumentColor: $word-document-color;
 }

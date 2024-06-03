@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { AdminGuardedRoute } from './AdminGuardedRoute';
 import { ReadOnlyAccessGuardedRoute } from './ReadOnlyAccessGuardedRoute';
 import { DataUserGuardedRoute } from './DataUserGuardedRoute';
+import CenteredCircularProgress from '../components/elements/CenteredCircularProgress';
 
 // Lazy load all pages
 const HomePage = React.lazy(() => import('../pages/HomePage'));
@@ -41,7 +42,9 @@ export default function AppRoutes(): React.JSX.Element {
 					path="/"
 					element={
 						<ReadOnlyAccessGuardedRoute>
-							<HomePage />
+							<Suspense fallback={<CenteredCircularProgress />}>
+								<HomePage />
+							</Suspense>
 						</ReadOnlyAccessGuardedRoute>
 					}
 				/>
@@ -49,7 +52,9 @@ export default function AppRoutes(): React.JSX.Element {
 					path="home"
 					element={
 						<ReadOnlyAccessGuardedRoute>
-							<HomePage />
+							<Suspense fallback={<CenteredCircularProgress />}>
+								<HomePage />
+							</Suspense>
 						</ReadOnlyAccessGuardedRoute>
 					}
 				/>
@@ -57,7 +62,9 @@ export default function AppRoutes(): React.JSX.Element {
 					path="profile"
 					element={
 						<ReadOnlyAccessGuardedRoute>
-							<ProfilePage />
+							<Suspense fallback={<CenteredCircularProgress />}>
+								<ProfilePage />
+							</Suspense>
 						</ReadOnlyAccessGuardedRoute>
 					}
 				/>
@@ -67,7 +74,9 @@ export default function AppRoutes(): React.JSX.Element {
 					<Route
 						element={
 							<ReadOnlyAccessGuardedRoute>
-								<AllBooksPage />
+								<Suspense fallback={<CenteredCircularProgress />}>
+									<AllBooksPage />
+								</Suspense>
 							</ReadOnlyAccessGuardedRoute>
 						}
 						path="all"
@@ -75,7 +84,9 @@ export default function AppRoutes(): React.JSX.Element {
 					<Route
 						element={
 							<ReadOnlyAccessGuardedRoute>
-								<FindBookPage />
+								<Suspense fallback={<CenteredCircularProgress />}>
+									<FindBookPage />
+								</Suspense>
 							</ReadOnlyAccessGuardedRoute>
 						}
 						path="find"
@@ -83,10 +94,22 @@ export default function AppRoutes(): React.JSX.Element {
 					<Route
 						element={
 							<ReadOnlyAccessGuardedRoute>
-								<ViewBookPage />
+								<Suspense fallback={<CenteredCircularProgress />}>
+									<ViewBookPage />
+								</Suspense>
 							</ReadOnlyAccessGuardedRoute>
 						}
 						path=":id"
+					/>
+					<Route
+						element={
+							<ReadOnlyAccessGuardedRoute>
+								<Suspense fallback={<CenteredCircularProgress />}>
+									<AllBooksPage />
+								</Suspense>
+							</ReadOnlyAccessGuardedRoute>
+						}
+						path=""
 					/>
 				</Route>
 
@@ -94,7 +117,9 @@ export default function AppRoutes(): React.JSX.Element {
 				<Route
 					element={
 						<DataUserGuardedRoute>
-							<ReportsSearchPage />
+							<Suspense fallback={<CenteredCircularProgress />}>
+								<ReportsSearchPage />
+							</Suspense>
 						</DataUserGuardedRoute>
 					}
 					path="report"
@@ -105,7 +130,9 @@ export default function AppRoutes(): React.JSX.Element {
 					<Route
 						element={
 							<AdminGuardedRoute>
-								<ManageAdGroupPage />
+								<Suspense fallback={<CenteredCircularProgress />}>
+									<ManageAdGroupPage />
+								</Suspense>
 							</AdminGuardedRoute>
 						}
 						path="group/manage"

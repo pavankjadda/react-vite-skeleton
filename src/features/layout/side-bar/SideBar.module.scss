@@ -1,48 +1,46 @@
 @import '../../../assets/css/custom-variables.module';
 
-
 //.appBar {
 //  zIndex: theme.zIndex.drawer + 1,
 //},
 
 .banner {
-  margin: 50px 20px !important;
+	margin: 50px 20px !important;
 }
 
 .drawerContainer {
-  overflow: auto !important;
+	overflow: auto !important;
 }
 
-
 .listItemIcon {
-  color: $white-color !important;
-  min-width: auto !important;
-  padding-right: inherit !important;
+	color: $white-color !important;
+	min-width: auto !important;
+	padding-right: inherit !important;
 }
 
 .divider {
-  border-bottom: 2px solid white !important;
+	border-bottom: 2px solid white !important;
 }
 
 .drawerContainer {
-  overflow: auto !important;
+	overflow: auto !important;
 }
 
 .drawer {
-  width: 300px !important;
-  flex-shrink: 0 !important;
+	width: 300px !important;
+	flex-shrink: 0 !important;
 }
 
 .drawerPaper {
-  width: 300px !important;
-  background-color: $primary-color !important;
-  color: $white-color !important;
+	width: 300px !important;
+	background-color: $primary-color !important;
+	color: $white-color !important;
 }
 
 // Hide Side in Medium and lower size devices
-@media(max-width: 992px) {
-  .drawerContainer {
-    display: none !important;
-    overflow: auto !important;
-  }
+@media (max-width: 992px) {
+	.drawerContainer {
+		display: none !important;
+		overflow: auto !important;
+	}
 }
