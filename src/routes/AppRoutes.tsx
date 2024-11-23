@@ -28,7 +28,7 @@ const ViewBookPage = React.lazy(() => import('../pages/ViewBookPage'));
  */
 export default function AppRoutes(): React.JSX.Element {
 	return (
-		<div>
+		<Suspense fallback={<></>}>
 			<Routes>
 				{/* Core Routes */}
 				<Route element={<LoginPage />} path="login" />
@@ -141,6 +141,6 @@ export default function AppRoutes(): React.JSX.Element {
 
 				<Route element={<NotFoundPage />} path="*" />
 			</Routes>
-		</div>
+		</Suspense>
 	);
 }

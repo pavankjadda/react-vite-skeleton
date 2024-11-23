@@ -39,7 +39,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isReadOnlyUser(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_READONLY_USER) !== undefined;
+		return getCurrentUser()?.authorities?.find((authority) => authority.name === ROLE_READONLY_USER) !== undefined;
 	}
 
 	/**
@@ -49,7 +49,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isDataUser(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_DATA_USER) !== undefined;
+		return getCurrentUser()?.authorities?.find((authority) => authority.name === ROLE_DATA_USER) !== undefined;
 	}
 
 	/**
@@ -59,7 +59,7 @@ export default function useAuthService(): {
 	 * @since 1.0.0
 	 */
 	function isSysAdmin(): boolean {
-		return getCurrentUser()?.authorities.find((authority) => authority.name === ROLE_SYS_ADMIN) !== undefined;
+		return getCurrentUser()?.authorities?.find((authority) => authority.name === ROLE_SYS_ADMIN) !== undefined;
 	}
 
 	/**
