@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import useCookies from '@js-smart/react-cookie-service';
-import { LoadingButton } from '@mui/lab';
-import { Grid, TextField, Typography } from '@mui/material';
+import { Button, Grid, TextField, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
@@ -178,7 +177,7 @@ export default function LoginForm(): React.JSX.Element {
 
 			{/* Submit button */}
 			<div className="custom-flex-justify-center" style={{ padding: '20px' }}>
-				<LoadingButton
+				<Button
 					style={{ minWidth: '200px' }}
 					type="submit"
 					loading={loadingState.loading}
@@ -187,7 +186,7 @@ export default function LoginForm(): React.JSX.Element {
 					variant="contained"
 					className="mx-auto">
 					Login
-				</LoadingButton>
+				</Button>
 			</div>
 			{/* Loading Error */}
 			<div className="row" style={{ padding: '20px' }}>
