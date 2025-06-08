@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import HelpIcon from '@mui/icons-material/Help';
 import styles from './SideBar.module.scss';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import { ListItemButton } from '@mui/material';
 
 /**
  * Define Side Bar content in a string
@@ -18,7 +19,7 @@ import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
  * @author Pavan Kumar Jadda
  * @since 1.0.0
  */
-function DrawerContent(): React.JSX.Element {
+export function DrawerContent(): React.JSX.Element {
 	const navigate = useNavigate();
 
 	return (
@@ -30,21 +31,27 @@ function DrawerContent(): React.JSX.Element {
 				{/* Book Section */}
 				<List style={{ marginTop: '20px' }}>
 					{/* Home */}
-					<ListItem button key="Home" onClick={() => navigate('/')}>
-						<ListItemIcon className={styles.listItemIcon}>{<HomeIcon />}</ListItemIcon>
-						<ListItemText primary="Home" />
+					<ListItem key="Home" onClick={() => navigate('/')}>
+						<ListItemButton>
+							<ListItemIcon className={styles.listItemIcon}>{<HomeIcon />}</ListItemIcon>
+							<ListItemText primary="Home" />
+						</ListItemButton>
 					</ListItem>
 
 					{/* Find Book */}
-					<ListItem button key="Book Search" onClick={() => navigate('/book/find')}>
-						<ListItemIcon className={styles.listItemIcon}>{<SearchIcon />}</ListItemIcon>
-						<ListItemText primary="Find Book" />
+					<ListItem key="Book Search" onClick={() => navigate('/book/find')}>
+						<ListItemButton>
+							<ListItemIcon className={styles.listItemIcon}>{<SearchIcon />}</ListItemIcon>
+							<ListItemText primary="Find Book" />
+						</ListItemButton>
 					</ListItem>
 
 					{/* All Books */}
-					<ListItem button key="All Books" onClick={() => navigate('/book/all')}>
-						<ListItemIcon className={styles.listItemIcon}>{<FormatListBulletedIcon />}</ListItemIcon>
-						<ListItemText primary="All Books" />
+					<ListItem key="All Books" onClick={() => navigate('/book/all')}>
+						<ListItemButton>
+							<ListItemIcon className={styles.listItemIcon}>{<FormatListBulletedIcon />}</ListItemIcon>
+							<ListItemText primary="All Books" />
+						</ListItemButton>
 					</ListItem>
 				</List>
 				<Divider />
@@ -53,14 +60,18 @@ function DrawerContent(): React.JSX.Element {
 				{/* Help Section */}
 				<List>
 					{/* Account */}
-					<ListItem button key="Account" onClick={() => navigate('/profile')}>
-						<ListItemIcon className={styles.listItemIcon}>{<AccountCircleIcon />}</ListItemIcon>
-						<ListItemText primary="Account" />
+					<ListItem key="Account" onClick={() => navigate('/profile')}>
+						<ListItemButton>
+							<ListItemIcon className={styles.listItemIcon}>{<AccountCircleIcon />}</ListItemIcon>
+							<ListItemText primary="Account" />
+						</ListItemButton>
 					</ListItem>
 					{/* Help */}
-					<ListItem button key="Home" onClick={() => navigate('/help')}>
-						<ListItemIcon className={styles.listItemIcon}>{<HelpIcon />}</ListItemIcon>
-						<ListItemText primary="Help" />
+					<ListItem key="Home" onClick={() => navigate('/help')}>
+						<ListItemButton>
+							<ListItemIcon className={styles.listItemIcon}>{<HelpIcon />}</ListItemIcon>
+							<ListItemText primary="Help" />
+						</ListItemButton>
 					</ListItem>
 
 					{/* Version */}
@@ -72,5 +83,3 @@ function DrawerContent(): React.JSX.Element {
 		</div>
 	);
 }
-
-export default DrawerContent;

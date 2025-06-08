@@ -3,8 +3,8 @@ import Drawer from '@mui/material/Drawer';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../state/store';
-import DrawerContent from './DrawerContent';
-import ReactIf from '../../../components/ReactIf';
+import { ReactIf } from '@js-smart/react-kit';
+import { DrawerContent } from './DrawerContent';
 
 export default function SideBar(): React.JSX.Element {
 	const drawerOpen = useSelector((state: RootState) => state.preferences.drawerOpen);

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import BookTile from './book-tile/BookTile';
 import HelpTile from './help-tile/HelpTile';
 import { HomeService } from '../../services/HomeService';
-import { ProgressState } from '../../components/ProgressState';
-import { initializeState, markError, markLoading, markSuccess } from '../../util/UpdateStateUtils';
 import { useDispatch } from 'react-redux';
 import { updateUser } from '../../state/reducers/UserReducer';
-import ReactIf from '../../components/ReactIf';
+import { initializeState, markError, markLoading, markSuccess, ProgressState, ReactIf } from '@js-smart/react-kit';
 import { Alert } from '@mui/material';
 import useCookies from '@js-smart/react-cookie-service';
 
@@ -37,7 +35,7 @@ export default function Home(): React.JSX.Element {
 	return (
 		<div className="container-fluid">
 			{/* Alert block */}
-			<ReactIf condition={!loadingState.loading && loadingState.error}>
+			<ReactIf condition={!loadingState.isLoading && loadingState.isError}>
 				<div className="row">
 					<Alert className="custom-flex-justify-center" severity="error">
 						{loadingState.message}

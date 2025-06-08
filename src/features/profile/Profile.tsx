@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { User } from '../user/User';
 import useCookies from '@js-smart/react-cookie-service';
 import { UserService } from '../../services/UserService';
-import { ProgressState } from '../../components/ProgressState';
-import ReactIf from '../../components/ReactIf';
-import { initializeState, markError, markSuccess } from '../../util/UpdateStateUtils';
+import { initializeState, markError, markSuccess, ProgressState, ReactIf } from '@js-smart/react-kit';
 
 export default function Profile(): React.JSX.Element {
 	const { check, getCookie } = useCookies();
@@ -31,7 +29,7 @@ export default function Profile(): React.JSX.Element {
 			<Divider />
 
 			{/* Alert */}
-			<ReactIf condition={!loadingState.loading && loadingState.error}>
+			<ReactIf condition={!loadingState.isLoading && loadingState.isError}>
 				<Alert severity="error">Unable to get profile information, please try again after sometime</Alert>
 			</ReactIf>
 

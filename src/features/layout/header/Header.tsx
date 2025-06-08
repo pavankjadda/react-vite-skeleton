@@ -7,11 +7,11 @@ import { Link } from 'react-router-dom';
 import styles from './header.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDrawerStatus } from '../../../state/reducers/PreferencesReducer';
-import ReactIf from '../../../components/ReactIf';
 import { RootState } from '../../../state/store';
 import BreadCrumbs from '../breadcrumbs/BreadCrumbs';
 import useAuthService from '../../../hooks/useAuthService';
 import ProfileMenu from './ProfileMenu';
+import { ReactIf } from '@js-smart/react-kit';
 
 export default function Header(): React.JSX.Element {
 	const dispatch = useDispatch();

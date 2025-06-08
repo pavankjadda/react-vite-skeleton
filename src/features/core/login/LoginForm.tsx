@@ -6,7 +6,6 @@ import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { ProgressState } from '../../../components/ProgressState';
 import { ROLE_CORE_USER } from '../../../constants/AuthorityConstants';
 import { HTTP_403, HTTP_500 } from '../../../constants/HttpConstants';
 import { SUCCESS } from '../../../constants/StateConstants';
@@ -14,8 +13,8 @@ import { LoginService } from '../../../services/LoginService';
 import { resetReduxStore } from '../../../state/reducers/RootReducer';
 import { createUser } from '../../../state/reducers/UserReducer';
 import { isUndefinedOrNullOrEmpty } from '../../../util/StringUtils';
-import { initializeState, markError } from '../../../util/UpdateStateUtils';
 import './Login.scss';
+import { initializeState, markError, ProgressState } from '@js-smart/react-kit';
 
 interface LoginFormInput {
 	username: string;
@@ -180,7 +179,7 @@ export default function LoginForm(): React.JSX.Element {
 				<Button
 					style={{ minWidth: '200px' }}
 					type="submit"
-					loading={loadingState.loading}
+					loading={loadingState.isLoading}
 					loadingPosition={'center'}
 					color="primary"
 					variant="contained"
@@ -190,7 +189,7 @@ export default function LoginForm(): React.JSX.Element {
 			</div>
 			{/* Loading Error */}
 			<div className="row" style={{ padding: '20px' }}>
-				{!loadingState.loading && loadingState.error && <h6 style={{ color: 'red' }}>{loadingState.message}</h6>}
+				{!loadingState.isLoading && loadingState.isError && <h6 style={{ color: 'red' }}>{loadingState.message}</h6>}
 			</div>
 		</form>
 	);

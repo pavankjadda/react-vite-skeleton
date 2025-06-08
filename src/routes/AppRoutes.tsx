@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import { AdminGuardedRoute } from './AdminGuardedRoute';
 import { ReadOnlyAccessGuardedRoute } from './ReadOnlyAccessGuardedRoute';
 import { DataUserGuardedRoute } from './DataUserGuardedRoute';
-import CenteredCircularProgress from '../components/elements/CenteredCircularProgress';
+import { CenteredCircularProgress } from '@js-smart/react-kit';
 
 // Lazy load all pages
 const HomePage = React.lazy(() => import('../pages/HomePage'));
