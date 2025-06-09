@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite --port=3000",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "lint": "eslint .",
+    "coverage": "vitest run --coverage",
+    "format": "prettier .",
+    "format:write": "prettier --write --cache ."
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -32,6 +35,17 @@
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.80.6",
     "@tanstack/eslint-plugin-query": "^5.78.0",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.26.0",
+    "eslint-plugin-prettier": "^5.4.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-compiler": "19.1.0-rc.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint-import-resolver-typescript": "^4.3.4",
+    "eslint": "^9.26.0",
+    "globals": "^16.1.0",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "@types/react-router-dom": "^5.3.3",

@@ -11,7 +11,7 @@
  */
 export async function fetchClient<T>(url: string, options: RequestInit = {}): Promise<T> {
 	// Initialize headers object
-	let headers = new Headers(options.headers || {});
+	const headers = new Headers(options.headers || {});
 
 	// Check if the body is FormData, if not, handle as JSON
 	if (options.body instanceof FormData) {

@@ -143,7 +143,7 @@ export default function LoginForm(): React.JSX.Element {
 							variant="filled"
 							placeholder="Use your Username"
 							error={errors.username !== undefined}
-							helperText={errors.username && errors.username.message}
+							helperText={errors.username ? errors.username.message : null}
 							{...field}
 							required
 						/>
@@ -166,7 +166,7 @@ export default function LoginForm(): React.JSX.Element {
 							variant="filled"
 							placeholder="Use your Password"
 							error={errors.password !== undefined}
-							helperText={errors.password && errors.password.message}
+							helperText={errors.password ? errors.password.message : null}
 							{...field}
 							required
 						/>
@@ -189,7 +189,7 @@ export default function LoginForm(): React.JSX.Element {
 			</div>
 			{/* Loading Error */}
 			<div className="row" style={{ padding: '20px' }}>
-				{!loadingState.isLoading && loadingState.isError && <h6 style={{ color: 'red' }}>{loadingState.message}</h6>}
+				{!loadingState.isLoading && loadingState.isError ? <h6 style={{ color: 'red' }}>{loadingState.message}</h6> : null}
 			</div>
 		</form>
 	);

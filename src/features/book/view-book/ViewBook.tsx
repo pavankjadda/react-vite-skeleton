@@ -6,8 +6,8 @@ import { useQuery } from '@tanstack/react-query';
 import { BookService } from '../../../services/BookService';
 
 function ViewBook() {
-	let { id } = useParams();
-	const { data, isLoading, isError, isSuccess } = useQuery({
+	const { id } = useParams();
+	const { data } = useQuery({
 		queryKey: ['books'],
 		queryFn: () => BookService.getAllBooks(),
 	});

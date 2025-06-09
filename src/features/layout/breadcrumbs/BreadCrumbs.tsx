@@ -24,41 +24,27 @@ export default function BreadCrumbs(): React.JSX.Element {
 	return (
 		<>
 			<Breadcrumbs separator={<NavigateNextIcon fontSize="small" />}>
-				{homeMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/">
+				{homeMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/">
 						Home
-					</Link>
-				)}
-				{faqMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/faq">
+					</Link> : null}
+				{faqMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/faq">
 						Faq
-					</Link>
-				)}
-				{profileMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/profile">
+					</Link> : null}
+				{profileMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/profile">
 						Profile
-					</Link>
-				)}
-				{bookMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/book">
+					</Link> : null}
+				{bookMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/book">
 						Book
-					</Link>
-				)}
-				{booksAllMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/book/all">
+					</Link> : null}
+				{booksAllMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/book/all">
 						All
-					</Link>
-				)}
-				{bookFindMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to="/book/find">
+					</Link> : null}
+				{bookFindMatches ? <Link underline="hover" color="inherit" component={RouterLink} to="/book/find">
 						Find
-					</Link>
-				)}
-				{bookViewMatches && (
-					<Link underline="hover" color="inherit" component={RouterLink} to={`/book/${bookViewMatches.params.id}`}>
+					</Link> : null}
+				{bookViewMatches ? <Link underline="hover" color="inherit" component={RouterLink} to={`/book/${bookViewMatches.params.id}`}>
 						{data?.find((book) => book.id.toString() === bookViewMatches.params.id)?.id}
-					</Link>
-				)}
+					</Link> : null}
 			</Breadcrumbs>
 		</>
 	);

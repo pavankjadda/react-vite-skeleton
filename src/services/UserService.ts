@@ -15,7 +15,7 @@ export class UserService {
 	 * @author Pavan Kumar Jadda
 	 * @since 1.0.0
 	 */
-	static getUserProfileInformation(username: string | undefined): Promise<AxiosResponse<User>> {
+	static getUserProfileInformation(_username: string | undefined): Promise<AxiosResponse<User>> {
 		return axios.get<User>(`${BASE_API_URL + USER_API_URL}/authenticate`);
 	}
 }

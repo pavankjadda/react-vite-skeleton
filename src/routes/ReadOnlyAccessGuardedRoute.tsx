@@ -10,7 +10,7 @@ import useAuthService from '../hooks/useAuthService';
  */
 export function ReadOnlyAccessGuardedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
 	const { isUserLoggedIn } = useAuthService();
-	let location = useLocation();
+	const location = useLocation();
 	const { isReadOnlyUser } = useAuthService();
 
 	if (!isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;

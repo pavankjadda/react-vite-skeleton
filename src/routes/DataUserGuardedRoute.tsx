@@ -9,7 +9,7 @@ import useAuthService from '../hooks/useAuthService';
  * @since 1.0.0
  */
 export function DataUserGuardedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
-	let location = useLocation();
+	const location = useLocation();
 	const { isUserLoggedIn } = useAuthService();
 	const { isDataUser } = useAuthService();
 

@@ -10,7 +10,7 @@ import useAuthService from '../hooks/useAuthService';
  */
 export function AdminGuardedRoute({ children }: { children: React.JSX.Element }): React.JSX.Element {
 	const { isUserLoggedIn } = useAuthService();
-	let location = useLocation();
+	const location = useLocation();
 	const { isSysAdmin } = useAuthService();
 
 	if (!isUserLoggedIn()) return <Navigate to="login" state={{ from: location }} replace />;
