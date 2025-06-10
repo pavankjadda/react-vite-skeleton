@@ -23,7 +23,7 @@ export default function Profile(): React.JSX.Element {
 
 	return (
 		<Card>
-			<Typography style={{ margin: '10px' }} className="custom-flex-justify-center" variant="h4" component="div">
+			<Typography style={{ margin: '10px' }} className="app-flex-justify-center" variant="h4" component="div">
 				Profile
 			</Typography>
 			<Divider />

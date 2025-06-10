@@ -11,7 +11,7 @@ export default function Footer(): React.JSX.Element {
 	return (
 		<FooterWrapper>
 			<div className="row">
-				<h6 className="custom-flex-justify-center">Developed by CCR OIT</h6>
+				<h6 className="app-flex-justify-center">Developed by CCR OIT</h6>
 			</div>
 		</FooterWrapper>
 	);

@@ -6,7 +6,7 @@ export default function Faq(): React.JSX.Element {
 	return (
 		<Card elevation={24} className={'container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-10 col-xl-10'}>
 			<CardContent>
-				<h3 className={'custom-flex-justify-center'}>Frequently Asked Questions</h3>
+				<h3 className={'app-flex-justify-center'}>Frequently Asked Questions</h3>
 				<Divider />
 
 				<div style={{ marginTop: '30px' }}>

@@ -12,28 +12,22 @@ export default function AllBooks() {
 	});
 
 	return (
-		<Grid container className="custom-flex-justify-center" style={{ height: 'auto', width: '100%' }}>
-			<Grid size={{ xs: 12, sm: 12, md: 12, lg: 11, xl: 11 }}>
-				<Paper elevation={24} style={{ marginTop: '30px' }}>
-					<h2 className={'custom-flex-justify-center'}>All Books</h2>
-					<div style={{ display: 'flex', height: '100%' }}>
-						<div style={{ flexGrow: 1 }}>
-							<DataGrid
-								initialState={{ pagination: { paginationModel: { pageSize: 10 } } }}
-								getRowId={(row) => row.id}
-								pageSizeOptions={[10, 20, 50, 100]}
-								disableRowSelectionOnClick={true}
-								density={'comfortable'}
-								loading={isLoading}
-								rows={books ?? []}
-								columns={columns}
-								autoHeight={true}
-							/>
-						</div>
-					</div>
-				</Paper>
-			</Grid>
-		</Grid>
+		<Paper elevation={24} sx={{my:3}}>
+			<h2 className={'app-flex-justify-center'}>All Books</h2>
+			<div style={{ display: 'flex', flexDirection: 'column' }}>
+					<DataGrid
+						initialState={{ pagination: { paginationModel: { pageSize: 10 } } }}
+						getRowId={(row) => row.id}
+						pageSizeOptions={[10, 20, 50, 100]}
+						disableRowSelectionOnClick={true}
+						density={'comfortable'}
+						loading={isLoading}
+						rows={books ?? []}
+						columns={columns}
+						autoHeight={true}
+					/>
+			</div>
+		</Paper>
 	);
 }
 

@@ -37,7 +37,7 @@ export default function Home(): React.JSX.Element {
 			{/* Alert block */}
 			<ReactIf condition={!loadingState.isLoading && loadingState.isError}>
 				<div className="row">
-					<Alert className="custom-flex-justify-center" severity="error">
+					<Alert className="app-flex-justify-center" severity="error">
 						{loadingState.message}
 					</Alert>
 				</div>

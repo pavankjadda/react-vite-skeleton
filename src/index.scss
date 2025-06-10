@@ -1,27 +1,27 @@
-@import 'assets/css/general.scss';
-@import 'assets/css/custom-table.scss';
-@import 'assets/css/custom-buttons.scss';
-@import 'assets/css/custom-form.scss';
+@use 'assets/css/general.scss';
+@use 'assets/css/app-buttons.scss';
+@use 'assets/css/app-form.scss';
+@use 'assets/css/side-bar.scss';
 
 html,
 body {
-	height: 100%;
-	width: 100%;
-	margin: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
-	margin: 0;
-	font-family: 'Open Sans', sans-serif !important;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	background-color: #dedede;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--background-color);
 }

@@ -124,13 +124,13 @@ export default function LoginForm(): React.JSX.Element {
 			<Typography
 				component="div"
 				variant="h4"
-				className="custom-head-primary custom-flex-justify-center"
+				className="app-head-primary app-flex-justify-center"
 				style={{ margin: '20px', fontWeight: 'bold' }}>
 				Login
 			</Typography>
 
 			{/* Username */}
-			<Grid container className="custom-flex-justify-center" style={{ padding: '20px' }}>
+			<Grid container className="app-flex-justify-center" style={{ padding: '20px' }}>
 				<Controller
 					name="username"
 					control={control}
@@ -152,7 +152,7 @@ export default function LoginForm(): React.JSX.Element {
 			</Grid>
 
 			{/* Password */}
-			<Grid container className="custom-flex-justify-center" style={{ padding: '20px' }}>
+			<Grid container className="app-flex-justify-center" style={{ padding: '20px' }}>
 				<Controller
 					name="password"
 					control={control}
@@ -175,7 +175,7 @@ export default function LoginForm(): React.JSX.Element {
 			</Grid>
 
 			{/* Submit button */}
-			<div className="custom-flex-justify-center" style={{ padding: '20px' }}>
+			<div className="app-flex-justify-center" style={{ padding: '20px' }}>
 				<Button
 					style={{ minWidth: '200px' }}
 					type="submit"

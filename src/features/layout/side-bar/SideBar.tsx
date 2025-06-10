@@ -1,4 +1,3 @@
-import styles from './SideBar.module.scss';
 import Drawer from '@mui/material/Drawer';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -15,22 +14,22 @@ export default function SideBar(): React.JSX.Element {
 				<Drawer
 					elevation={24}
 					sx={{ display: { xs: 'none', lg: 'block' } }}
-					className={styles.drawer}
+					className="drawer"
 					variant="permanent"
-					classes={{ paper: styles.drawerPaper }}>
+					classes={{ paper: 'drawerPaper' }}>
 					<DrawerContent />
 				</Drawer>
 			</ReactIf>
 
 			{/* Show in Tablet/Mobile View(Hide in Desktop View) */}
 			<Drawer
-				className={styles.drawer}
+				className="drawer"
 				variant="temporary"
 				open={false}
 				anchor="left"
 				sx={{ xs: 'block', sm: 'block', md: 'block', lg: 'block' }}
 				classes={{
-					paper: styles.drawerPaper,
+					paper: 'drawerPaper',
 				}}>
 				<DrawerContent />
 			</Drawer>
