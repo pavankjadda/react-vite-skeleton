@@ -11,7 +11,7 @@ export default function Profile(): React.JSX.Element {
 	const { data: userProfile, isLoading, isError } = useGetUserProfileInformation();
 
 	return (
-		<Card>
+		<Card elevation={24}>
 			<Typography style={{ margin: '10px' }} className="app-flex-justify-center" variant="h4" component="div">
 				Profile
 			</Typography>
