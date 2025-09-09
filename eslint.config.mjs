@@ -1,13 +1,14 @@
-import { defineConfig } from 'eslint/config';
-import react from 'eslint-plugin-react';
-import typescriptEslint from '@typescript-eslint/eslint-plugin';
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
 import pluginQuery from '@tanstack/eslint-plugin-query';
-import globals from 'globals';
+import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
+import react from 'eslint-plugin-react';
+import reactCompiler from 'eslint-plugin-react-compiler';
+import { defineConfig } from 'eslint/config';
+import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -24,9 +25,15 @@ export default defineConfig([
 				version: 'detect',
 			},
 		},
-		extends: compat.extends('eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended'),
+		extends: compat.extends(
+			'eslint:recommended',
+			'plugin:react/recommended',
+			'plugin:@typescript-eslint/recommended',
+			'plugin:react-compiler/recommended'
+		),
 		plugins: {
 			react,
+			'react-compiler': reactCompiler,
 			'@typescript-eslint': typescriptEslint,
 			'@tanstack/query': pluginQuery,
 		},

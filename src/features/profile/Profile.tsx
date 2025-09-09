@@ -1,25 +1,14 @@
-import { Alert, Card, CardContent, Checkbox, Divider, List, ListItem, ListItemButton, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { User } from '../user/User';
 import useCookies from '@js-smart/react-cookie-service';
-import { UserService } from '../../services/UserService';
-import { initializeState, markError, markSuccess, ProgressState, ReactIf } from '@js-smart/react-kit';
+import { ReactIf } from '@js-smart/react-kit';
+import { Alert, Card, CardContent, Checkbox, Divider, List, ListItem, ListItemButton, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import { useGetUserProfileInformation } from '../../services/UserService';
+import { User } from '../user/User';
 
 export default function Profile(): React.JSX.Element {
 	const { check, getCookie } = useCookies();
 	const [user] = useState<User | undefined>(check('currentUser') ? (JSON.parse(getCookie('currentUser')) as User) : undefined);
-	const [userProfile, setUserProfile] = useState<User | undefined>();
-	const [loadingState, setLoadingState] = useState<ProgressState>(initializeState());
-	useEffect(() => {
-		UserService.getUserProfileInformation(user?.username)
-			.then((response) => {
-				setLoadingState(markSuccess(loadingState));
-				setUserProfile(response.data);
-			})
-			.catch((error) => {
-				setLoadingState(markError(loadingState, 'An error occurred while loading the profile. Error: ' + error));
-			});
-	}, [user]);
+	const { data: userProfile, isLoading, isError } = useGetUserProfileInformation();
 
 	return (
 		<Card>
@@ -29,7 +18,7 @@ export default function Profile(): React.JSX.Element {
 			<Divider />
 
 			{/* Alert */}
-			<ReactIf condition={!loadingState.isLoading && loadingState.isError}>
+			<ReactIf condition={!isLoading && isError}>
 				<Alert severity="error">Unable to get profile information, please try again after sometime</Alert>
 			</ReactIf>
 

@@ -1,17 +1,11 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Button, Grid, Paper } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { useQuery } from '@tanstack/react-query';
-import { BookService } from '../../../services/BookService';
+import { Button, Grid, Paper } from '@mui/material';
+import { Link, useParams } from 'react-router-dom';
+import { useGetAllBooks } from '../../../services/BookService';
 
 function ViewBook() {
 	const { id } = useParams();
-	const { data } = useQuery({
-		queryKey: ['books'],
-		queryFn: () => BookService.getAllBooks(),
-	});
-
+	const { data } = useGetAllBooks();
 	const book = data?.find((b) => b?.id.toString() === id);
 
 	return (

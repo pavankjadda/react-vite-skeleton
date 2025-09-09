@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import BookTile from './book-tile/BookTile';
-import HelpTile from './help-tile/HelpTile';
-import { HomeService } from '../../services/HomeService';
-import { useDispatch } from 'react-redux';
-import { updateUser } from '../../state/reducers/UserReducer';
+import useCookies from '@js-smart/react-cookie-service';
 import { initializeState, markError, markLoading, markSuccess, ProgressState, ReactIf } from '@js-smart/react-kit';
 import { Alert } from '@mui/material';
-import useCookies from '@js-smart/react-cookie-service';
+import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { HomeService } from '../../services/HomeService';
+import { updateUser } from '../../state/reducers/UserReducer';
+import BookTile from './book-tile/BookTile';
+import HelpTile from './help-tile/HelpTile';
 
 export default function Home(): React.JSX.Element {
 	const [loadingState, setLoadingState] = useState<ProgressState>(initializeState());

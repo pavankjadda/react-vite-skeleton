@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { User } from '../features/user/User';
 import { BASE_API_URL, USER_API_URL } from '../constants/ApiConstants';
+import { User } from '../features/user/User';
 
 /**
  * Utility class for Home Page operations

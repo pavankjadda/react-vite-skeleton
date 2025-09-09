@@ -1,26 +1,19 @@
 import { DataGrid, GridCellParams, GridColDef } from '@mui/x-data-grid';
-import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useGetAllBooks } from '../../../services/BookService';
 import { isUndefinedOrNullOrEmpty } from '../../../util/StringUtils';
-import { useQuery } from '@tanstack/react-query';
-import { BookService } from '../../../services/BookService';
 
 export default function FindBookTable(props: { searchText: string }) {
-	const { data: books, isLoading } = useQuery({
-		queryKey: ['books'],
-		queryFn: () => BookService.getAllBooks(),
-	});
+	const { data: books, isLoading } = useGetAllBooks();
 
-	const filteredBooks = useMemo(() => {
-		return isUndefinedOrNullOrEmpty(props.searchText)
-			? books
-			: books?.filter((row) => {
-					return Object.keys(row).some((field) => {
-						// @ts-ignore
-						return row[field] == null ? false : new RegExp(props.searchText, 'i').test(row[field].toString());
-					});
-			  });
-	}, [props.searchText, isLoading]);
+	const filteredBooks = isUndefinedOrNullOrEmpty(props.searchText)
+		? books
+		: books?.filter((row) => {
+				return Object.keys(row).some((field) => {
+					// @ts-ignore
+					return row[field] == null ? false : new RegExp(props.searchText, 'i').test(row[field].toString());
+				});
+			});
 
 	return (
 		<div style={{ display: 'flex', height: '100%' }}>
